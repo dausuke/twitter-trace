@@ -1,11 +1,11 @@
-import {Icon, NaviIcon} from './components/atoms';
+import {Text, Box} from '@/components/atoms';
 
 function App() {
   return (
     <div className="App">
-      <h1>Twitter Trace</h1>
-      <Icon.BackIcon />
-      <NaviIcon.HomeIcon />
+      <Box align="center">
+        <Text>Twitter Trace</Text>
+      </Box>
     </div>
   );
 }

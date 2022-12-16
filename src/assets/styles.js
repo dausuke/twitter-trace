@@ -10,6 +10,7 @@ export const Colors = {
   },
   Background: {
     Primary: '#FFFFFF',
+    Seconday: '#EFF3F4',
   },
   Border: {
     Primary: '#EAEAEA',
