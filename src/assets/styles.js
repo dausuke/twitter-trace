@@ -15,6 +15,7 @@ export const Colors = {
   Border: {
     Primary: '#EAEAEA',
     Secondary: '#CFD9DE',
+    White: '#FFFFFF',
   },
   Icon: {
     Primary: '#536471',
