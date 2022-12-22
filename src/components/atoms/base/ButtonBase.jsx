@@ -8,7 +8,7 @@ export const ButtonBase = props => (
 
 const contaienr = css`
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: inherit;
   border: none;
   outline: none;
   border-radius: 0;
