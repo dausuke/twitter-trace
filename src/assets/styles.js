@@ -7,6 +7,7 @@ export const Colors = {
   Button: {
     Primary: '#0F1419',
     Seconday: '#0F1419',
+    Outline: '#FFFFFF',
   },
   Background: {
     Primary: '#FFFFFF',
