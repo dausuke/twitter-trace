@@ -5,12 +5,12 @@ export const Colors = {
     White: '#FFFFFF',
   },
   Button: {
-    Primary: '#0F1419',
+    Primary: '#1D9BF0',
     Seconday: '#0F1419',
     Outline: '#FFFFFF',
   },
   Background: {
-    Primary: '#FFFFFF',
+    Primary: '#FDFDFD',
     Seconday: '#EFF3F4',
   },
   Border: {
