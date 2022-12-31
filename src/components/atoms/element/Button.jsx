@@ -4,7 +4,7 @@ import {Text, Box} from '.';
 import {Colors} from '@/assets/styles';
 
 export const Button = ({fontSize = 12, px = 40, py = 10, outline, children, ...props}) => (
-  <Box justify="center" align="center" css={[container, !outline ? defaultStyle : outlineStyle]}>
+  <Box justifyContent="center" alignItems="center" css={[container, !outline ? defaultStyle : outlineStyle]}>
     <ButtonBase css={[button, {padding: `${py}px ${px}px`}]} {...props}>
       <Text
         css={baseText}

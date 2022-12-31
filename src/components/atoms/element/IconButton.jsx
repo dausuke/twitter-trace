@@ -1,14 +1,14 @@
 import {css} from '@emotion/react';
 import {ButtonBase} from '../base/ButtonBase';
 import {Box} from '.';
-import {Colors} from '@/assets/styles';
 
-export const IconButton = ({icon, size = 58, background = Colors.KeyColor.Primary, hasShadow, ...props}) => (
+export const IconButton = ({icon, size, color, onClick, ...props}) => (
   <Box
-    justify="center"
-    align="center"
-    css={[container, hasShadow && shadow, {width: size, height: size, background}]}>
-    <ButtonBase css={button} {...props}>
+    justifyContent="center"
+    alignItems="center"
+    css={[container, {width: size, height: size, backgroundColor: color}]}
+    {...props}>
+    <ButtonBase css={button} onClick={onClick}>
       {icon}
     </ButtonBase>
   </Box>
@@ -17,10 +17,6 @@ export const IconButton = ({icon, size = 58, background = Colors.KeyColor.Primar
 const container = css`
   border-radius: 50%;
   overflow: hidden;
-`;
-
-const shadow = css`
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.18);
 `;
 
 const button = css`
