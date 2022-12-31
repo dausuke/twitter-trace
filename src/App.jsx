@@ -1,6 +1,5 @@
 import emotionReset from 'emotion-reset';
 import {Global, css} from '@emotion/react';
-import {Text, Box} from '@/components/atoms';
 import {Feed} from './features/tweets/pages/Feed';
 
 function App() {
@@ -8,10 +7,7 @@ function App() {
     <>
       <Global styles={globalReset} />
       <div className="App">
-        <Box align="center">
-          <Text>Twitter Trace</Text>
-          <Feed />
-        </Box>
+        <Feed />
       </div>
     </>
   );

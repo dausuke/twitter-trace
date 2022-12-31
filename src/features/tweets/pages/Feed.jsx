@@ -7,7 +7,6 @@ import mock from '../mock';
 export const Feed = () => {
   return (
     <Page>
-      <Text>Feed</Text>
       {mock.map((data, index) => (
         <Tweet data={data} key={index} />
       ))}
