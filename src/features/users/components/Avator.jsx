@@ -1,17 +1,15 @@
 import {css} from '@emotion/react';
 import {Colors} from '@/assets/styles';
 
-export const Avator = ({image}) => {
+export const Avator = ({image, width = 90, height = 90}) => {
   return (
-    <div css={avator}>
+    <div css={[avator, {width, height}]}>
       <img src={image} css={avatorImage} />
     </div>
   );
 };
 
 const avator = css`
-  width: 90px;
-  height: 90px;
   border: 1px solid ${Colors.Border.White};
   border-radius: 50%;
   overflow: hidden;
