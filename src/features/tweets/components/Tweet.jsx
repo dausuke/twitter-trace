@@ -33,7 +33,7 @@ export const Tweet = ({data}) => {
   return (
     <Box row css={container}>
       <Box>
-        <Avator image={avator} width={48} height={48} />
+        <Avator image={avator} size={48} />
       </Box>
       <Box css={content}>
         <Box css={textField}>

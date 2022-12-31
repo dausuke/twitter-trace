@@ -8,13 +8,15 @@ import MailPlus from '@/assets/icon/mail_plus.svg';
 import Plus from '@/assets/icon/plus.svg';
 import Retweet from '@/assets/icon/retweet.svg';
 import Setting from '@/assets/icon/setting.svg';
+import Global from '@/assets/icon/global.svg';
+import Image from '@/assets/icon/image.svg';
 import {IconBase} from './IconBase';
 import {Colors} from '@/assets/styles';
 
 const DEFAULT_COLOR = Colors.Icon.Primary;
 const DEFAULT_SIZE = 18;
 
-const icons = {Back, Camera, Close, Comment, Export, Like, MailPlus, Plus, Retweet, Setting};
+const icons = {Back, Camera, Close, Comment, Export, Like, MailPlus, Plus, Retweet, Setting, Global, Image};
 
 const Base = ({color = DEFAULT_COLOR, size = DEFAULT_SIZE, name}) => (
   <IconBase icons={icons} color={color} size={size} name={name} />
@@ -30,3 +32,5 @@ export const MailPlusIcon = props => <Base name="MailPlus" {...props} />;
 export const PlusIcon = props => <Base name="Plus" {...props} />;
 export const RetweetIcon = props => <Base name="Retweet" {...props} />;
 export const SettingIcon = props => <Base name="Setting" {...props} />;
+export const ImageIcon = props => <Base name="Image" {...props} />;
+export const GlobalIcon = props => <Base name="Global" {...props} />;

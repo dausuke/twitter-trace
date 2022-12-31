@@ -1,13 +1,14 @@
 import emotionReset from 'emotion-reset';
 import {Global, css} from '@emotion/react';
-import {Feed} from './features/tweets/pages/Feed';
+import {Feed} from '@/features/tweets/pages/Feed';
+import {PostTweet} from '@/features/post/pages/PostTweet';
 
 function App() {
   return (
     <>
       <Global styles={globalReset} />
       <div className="App">
-        <Feed />
+        <PostTweet />
       </div>
     </>
   );

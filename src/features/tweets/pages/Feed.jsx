@@ -1,4 +1,3 @@
-import {Text} from '@/components/atoms';
 import {AddTweetButton} from '../components/AddTweetButton';
 import {Tweet} from '../components/Tweet';
 import {Page} from '@/components/page';
