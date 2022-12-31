@@ -1,5 +1,4 @@
-import {AddTweetButton} from '../components/AddTweetButton';
-import {Tweet} from '../components/Tweet';
+import {Tweet, AddTweetButton} from '../components';
 import {Page} from '@/components/page';
 import mock from '../mock';
 
