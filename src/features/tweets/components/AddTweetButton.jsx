@@ -12,7 +12,7 @@ export const AddTweetButton = props => {
       return;
     }
 
-    navigate('post/tweet');
+    navigate('/post/tweet');
   };
 
   return (
