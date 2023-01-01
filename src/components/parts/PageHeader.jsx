@@ -14,7 +14,6 @@ export const PageHeader = ({
   showBorder = true,
   textStyle,
 }) => {
-  console.log(content);
   return (
     <Box row css={[container, showBorder && border]} alignItems="center">
       <Box css={button} justifyContent="center">
