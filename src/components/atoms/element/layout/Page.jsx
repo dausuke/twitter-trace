@@ -1,16 +1,20 @@
 import {css} from '@emotion/react';
 import {Box} from '@/components/atoms';
-import {PageHeader} from '../../../parts/PageHeader';
+import {PageHeader} from '@/components/parts';
 import {Colors} from '@/assets/styles';
 
 export const Page = ({children, headerOption}) => (
   <Box css={container}>
-    <PageHeader {...headerOption} />
+    <PageHeader
+      headerLeft={headerOption.headerLeft}
+      headerRight={headerOption.headerRight}
+      {...headerOption}
+    />
     {children}
   </Box>
 );
 
 const container = css`
-  padding: 24px 0;
+  padding-bottom: 24px;
   background-color: ${Colors.Background.Primary};
 `;

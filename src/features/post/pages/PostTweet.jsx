@@ -1,6 +1,5 @@
 import {css} from '@emotion/react';
-import {Page} from '@/components/page';
-import {Box, TextArea} from '@/components/atoms';
+import {Page, Box, TextArea, HeaderButton} from '@/components/atoms';
 import {Avator} from '@/features/users';
 import Avator_A from '@/features/tweets/mock/images/A.png';
 import {Colors} from '@/assets/styles';
@@ -8,8 +7,13 @@ import {Icon} from '@/components/atoms';
 import {ActionButton} from '../components';
 
 export const PostTweet = () => {
+  const headerOption = {
+    headerLeft: <HeaderButton>キャンセル</HeaderButton>,
+    headerRight: <HeaderButton isButton>ツイートする</HeaderButton>,
+  };
+
   return (
-    <Page>
+    <Page headerOption={headerOption}>
       <Box row css={container}>
         <Avator size={48} image={Avator_A} />
         <Box css={content}>

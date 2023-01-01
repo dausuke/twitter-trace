@@ -1,5 +1,5 @@
 import {Tweet, AddTweetButton} from '../components';
-import {Page} from '@/components/page';
+import {Page} from '@/components/atoms';
 import mock from '../mock';
 
 export const Feed = () => {
