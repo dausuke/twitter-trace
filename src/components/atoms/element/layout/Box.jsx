@@ -1,27 +1,30 @@
+/* eslint-disable react/display-name */
+import {forwardRef} from 'react';
 import {css} from '@emotion/react';
 
-export const Box = ({
-  row,
-  wrap,
-  justifyContent = 'normal',
-  alignItems = 'normal',
-  display = 'flex',
-  children,
-  ...props
-}) => {
+export const BoxWrap = forwardRef(function Box(props, ref) {
+  const {
+    row,
+    wrap,
+    justifyContent = 'normal',
+    alignItems = 'normal',
+    display = 'flex',
+    children,
+    ...other
+  } = props;
   const flexDirection = row ? 'row' : 'column';
   const flexWrap = wrap ? 'wrap' : 'nowrap';
   const flexStyle = display === 'flex' ? {flexDirection, flexWrap, justifyContent, alignItems} : null;
 
   return (
-    <div css={[container, {display, ...flexStyle}]} {...props}>
+    <div ref={ref} css={[container, {display, ...flexStyle}]} {...other}>
       {children}
     </div>
   );
-};
+});
+
+export default BoxWrap;
 
 const container = css`
   display: flex;
 `;
-
-export default Box;

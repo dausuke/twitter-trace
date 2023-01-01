@@ -1,1 +1,2 @@
-export {PageHeader} from './PageHeader';
+export {NaviInPage} from './NaviInPage';
+export {Avator} from './Avator';
