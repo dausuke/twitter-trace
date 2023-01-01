@@ -11,7 +11,7 @@ export const NaviItem = ({path, icon}) => {
       case 'Search':
         return isActive ? <NaviIcon.SearchIconActive /> : <NaviIcon.SearchIcon />;
       case 'Notice':
-        return isActive ? <NaviIcon.MailIconActive /> : <NaviIcon.NoticeIcon />;
+        return isActive ? <NaviIcon.NoticeIconActive /> : <NaviIcon.NoticeIcon />;
       case 'Mail':
         return isActive ? <NaviIcon.MailIconActive /> : <NaviIcon.MailIcon />;
     }

@@ -1,26 +1,29 @@
 import {css} from '@emotion/react';
-import {SearchInput} from '../components/SearchInput';
-import {Tweet, AddTweetButton} from '@/features/tweets/components';
-import mock from '@/features/tweets/mock';
 import {NaviInPage, Avator} from '@/components/parts';
 import {HeaderButton, Box} from '@/components/atoms';
+import {AddTweetButton} from '@/features/tweets/components';
 import {Avator_A} from '@/features/mock/avators';
+import mock from '../mock';
+import {NoticeItem} from '../components/NoticeItem';
 
-export const Search = () => {
+export const Notification = () => {
   const headerOption = {
     headerLeft: (
       <HeaderButton>
         <Avator image={Avator_A} size={30} />
       </HeaderButton>
     ),
-    content: <SearchInput />,
+    title: '通知',
+    titleStyle: {
+      textAlign: 'center',
+    },
   };
 
   return (
     <NaviInPage headerOption={headerOption}>
       <Box css={content}>
         {mock.map((data, index) => (
-          <Tweet item={data} key={index} />
+          <NoticeItem item={data} key={index} />
         ))}
         <AddTweetButton />
       </Box>

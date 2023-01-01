@@ -12,5 +12,5 @@ export const NaviInPage = ({children, headerOption}) => (
 );
 
 const content = css`
-  padding: 56px 0 60px;
+  padding: 56px 0 50px;
 `;

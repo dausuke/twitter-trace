@@ -15,7 +15,7 @@ export const BottomNavi = () => {
 };
 
 const container = css`
-  padding: 13px 36px;
+  padding: 8px 32px;
   width: 100%;
   position: fixed;
   bottom: 0;

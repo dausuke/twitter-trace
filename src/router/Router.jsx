@@ -2,6 +2,7 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import {Feed} from '@/features/tweets/pages/Feed';
 import {PostTweet} from '@/features/post/pages/PostTweet';
 import {Search} from '@/features/search/pages/Search';
+import {Notification} from '@/features/notification/pages/Notification';
 
 const createRoutes = element => createBrowserRouter(createRoutesFromElements(element));
 
@@ -9,6 +10,7 @@ const routes = createRoutes(
   <Route path="/" errorElement={<div>error</div>}>
     <Route index element={<Feed />} />
     <Route path="search" element={<Search />} />
+    <Route path="notification" element={<Notification />} />
     <Route path="post/tweet" element={<PostTweet />} />
   </Route>,
 );
