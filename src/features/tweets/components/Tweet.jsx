@@ -7,8 +7,8 @@ import {Colors} from '@/assets/styles';
 
 const CONTENT = window.innerWidth - 32 - 48 - 10;
 
-export const Tweet = ({data}) => {
-  const {user_name, account_name, body, created_at, avator, ...statusData} = data;
+export const Tweet = ({item}) => {
+  const {user_name, account_name, body, created_at, avator, ...statusData} = item;
 
   const calcCreatedDiff = createdAt => {
     const now = dayjs();

@@ -3,7 +3,7 @@ import {Tweet, AddTweetButton} from '../components';
 import {NaviInPage, Avator} from '@/components/parts';
 import {HeaderButton, Box} from '@/components/atoms';
 import mock from '../mock';
-import Avator_A from '@/features/tweets/mock/images/A.png';
+import {Avator_A} from '@/features/mock/avators';
 
 export const Feed = () => {
   const headerOption = {
@@ -22,7 +22,7 @@ export const Feed = () => {
     <NaviInPage headerOption={headerOption}>
       <Box css={content}>
         {mock.map((data, index) => (
-          <Tweet data={data} key={index} />
+          <Tweet item={data} key={index} />
         ))}
         <AddTweetButton />
       </Box>

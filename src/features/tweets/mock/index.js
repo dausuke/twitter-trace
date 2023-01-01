@@ -1,7 +1,4 @@
-import Avator_A from './images/A.png';
-import Avator_B from './images/B.png';
-import Avator_C from './images/C.png';
-import Avator_D from './images/D.png';
+import {Avators} from '@/features/mock';
 
 export default [
   {
@@ -14,7 +11,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: true,
-    avator: Avator_A,
+    avator: Avators.Avator_A,
     created_at: '2022/12/22 13:04:00',
   },
   {
@@ -27,7 +24,7 @@ export default [
     is_commented: true,
     is_liked: false,
     is_retweeted: true,
-    avator: Avator_C,
+    avator: Avators.Avator_C,
     created_at: '2022/12/22 12:04:00',
   },
   {
@@ -40,7 +37,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: false,
-    avator: Avator_B,
+    avator: Avators.Avator_B,
     created_at: '2022/12/22 16:04:00',
   },
   {
@@ -53,7 +50,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: false,
-    avator: Avator_A,
+    avator: Avators.Avator_A,
     created_at: '2022/12/22 18:14:00',
   },
   {
@@ -66,7 +63,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: true,
-    avator: Avator_D,
+    avator: Avators.Avator_D,
     created_at: '2022/12/31 09:37:00',
   },
   {
@@ -79,7 +76,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: false,
-    avator: Avator_C,
+    avator: Avators.Avator_C,
     created_at: '2022/12/30 10:11:00',
   },
   {
@@ -92,7 +89,7 @@ export default [
     is_commented: true,
     is_liked: true,
     is_retweeted: true,
-    avator: Avator_B,
+    avator: Avators.Avator_B,
     created_at: '2022/12/20 18:31:01',
   },
   {
@@ -105,7 +102,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: true,
-    avator: Avator_A,
+    avator: Avators.Avator_A,
     created_at: '2022/12/22 13:04:00',
   },
   {
@@ -118,7 +115,7 @@ export default [
     is_commented: true,
     is_liked: false,
     is_retweeted: true,
-    avator: Avator_C,
+    avator: Avators.Avator_C,
     created_at: '2022/12/22 12:04:00',
   },
   {
@@ -131,7 +128,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: false,
-    avator: Avator_B,
+    avator: Avators.Avator_B,
     created_at: '2022/12/22 16:04:00',
   },
   {
@@ -144,7 +141,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: false,
-    avator: Avator_A,
+    avator: Avators.Avator_A,
     created_at: '2022/12/22 18:14:00',
   },
   {
@@ -157,7 +154,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: true,
-    avator: Avator_D,
+    avator: Avators.Avator_D,
     created_at: '2022/12/31 09:37:00',
   },
   {
@@ -170,7 +167,7 @@ export default [
     is_commented: false,
     is_liked: false,
     is_retweeted: false,
-    avator: Avator_C,
+    avator: Avators.Avator_C,
     created_at: '2022/12/30 10:11:00',
   },
   {
@@ -183,7 +180,7 @@ export default [
     is_commented: true,
     is_liked: true,
     is_retweeted: true,
-    avator: Avator_B,
+    avator: Avators.Avator_B,
     created_at: '2022/12/20 18:31:01',
   },
 ];
