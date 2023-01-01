@@ -27,5 +27,6 @@ export const Colors = {
   },
   KeyColor: {
     Primary: '#1D9BF0',
+    Wihte: '#FFFFFF',
   },
 };
