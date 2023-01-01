@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react';
 import {css} from '@emotion/react';
 import {Box, Text} from '../atoms';
 import {Colors} from '@/assets/styles';
@@ -15,27 +14,8 @@ export const PageHeader = ({
   showBorder = true,
   textStyle,
 }) => {
-  const [isShowHeader, setIsShowHeader] = useState(true);
-  const [position, setPosition] = useState(0);
-
-  const onScroll = () => {
-    const scroll = window.scrollY;
-
-    scroll > HEIGHT && scroll > position && setIsShowHeader(false);
-    (scroll < HEIGHT || scroll < position) && setIsShowHeader(true);
-
-    setPosition(scroll);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
   return (
-    <Box row css={[container, showBorder && border, !isShowHeader && isHidden]} alignItems="center">
+    <Box row css={[container, showBorder && border]} alignItems="center">
       <Box css={button} justifyContent="center">
         {!!headerLeft && headerLeft}
       </Box>
@@ -73,8 +53,6 @@ const container = css`
   top: 0;
   background-color: ${Colors.KeyColor.Wihte};
   z-index: 999;
-  transform: 'none';
-  transition: transform 0.1s ease;
 `;
 
 const main = css`
@@ -88,8 +66,4 @@ const button = css`
 
 const border = css`
   border-bottom: 1px solid ${Colors.Border.Primary};
-`;
-
-const isHidden = css`
-  transform: translateY(-150%);
 `;

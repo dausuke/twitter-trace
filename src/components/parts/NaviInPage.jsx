@@ -1,4 +1,5 @@
-import {Page} from '../atoms';
+import {css} from '@emotion/react';
+import {Box, Page} from '../atoms';
 import {PageHeader} from './PageHeader';
 import {BottomNavi} from './navi/BottomNavi';
 
@@ -9,7 +10,11 @@ export const NaviInPage = ({children, headerOption}) => (
       headerRight={headerOption.headerRight}
       {...headerOption}
     />
-    {children}
+    <Box css={content}>{children}</Box>
     <BottomNavi />
   </Page>
 );
+
+const content = css`
+  padding: 56px 0 60px;
+`;

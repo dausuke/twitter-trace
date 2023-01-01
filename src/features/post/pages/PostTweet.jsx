@@ -1,19 +1,21 @@
 import {css} from '@emotion/react';
-import {Page, Box, TextArea, HeaderButton} from '@/components/atoms';
-import {Avator} from '@/components/parts';
+import {useNavigate} from 'react-router';
+import {Box, TextArea, HeaderButton} from '@/components/atoms';
+import {Avator, NaviInPage} from '@/components/parts';
 import Avator_A from '@/features/tweets/mock/images/A.png';
 import {Colors} from '@/assets/styles';
 import {Icon} from '@/components/atoms';
 import {ActionButton} from '../components';
 
 export const PostTweet = () => {
+  const navigate = useNavigate();
   const headerOption = {
-    headerLeft: <HeaderButton>キャンセル</HeaderButton>,
+    headerLeft: <HeaderButton onClick={() => navigate(-1)}>キャンセル</HeaderButton>,
     headerRight: <HeaderButton isButton>ツイートする</HeaderButton>,
   };
 
   return (
-    <Page headerOption={headerOption}>
+    <NaviInPage headerOption={headerOption}>
       <Box row css={container}>
         <Avator size={48} image={Avator_A} />
         <Box css={content}>
@@ -35,7 +37,7 @@ export const PostTweet = () => {
           </Box>
         </Box>
       </Box>
-    </Page>
+    </NaviInPage>
   );
 };
 
