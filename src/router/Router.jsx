@@ -1,0 +1,16 @@
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
+import {Feed} from '@/features/tweets/pages/Feed';
+import {PostTweet} from '@/features/post/pages/PostTweet';
+
+const createRoutes = element => createBrowserRouter(createRoutesFromElements(element));
+
+const routes = createRoutes(
+  <Route path="/" errorElement={<div>error</div>}>
+    <Route index element={<Feed />} />
+    <Route path="post/tweet" element={<PostTweet />} />
+  </Route>,
+);
+
+const Router = () => <RouterProvider router={routes} />;
+
+export default Router;
