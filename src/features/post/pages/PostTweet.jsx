@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 import {Page, Box, TextArea, HeaderButton} from '@/components/atoms';
-import {Avator} from '@/features/users';
+import {Avator} from '@/components/parts';
 import Avator_A from '@/features/tweets/mock/images/A.png';
 import {Colors} from '@/assets/styles';
 import {Icon} from '@/components/atoms';
