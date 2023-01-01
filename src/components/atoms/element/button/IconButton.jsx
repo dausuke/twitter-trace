@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
-import {ButtonBase} from '../base/ButtonBase';
-import {Box} from '.';
+import {ButtonBase} from '../../base/ButtonBase';
+import {Box} from '..';
 
 export const IconButton = ({icon, size, color, onClick, ...props}) => (
   <Box

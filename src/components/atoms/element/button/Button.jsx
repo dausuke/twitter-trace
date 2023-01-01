@@ -1,6 +1,7 @@
 import {css} from '@emotion/react';
-import {ButtonBase} from '../base/ButtonBase';
-import {Text, Box} from '.';
+import {ButtonBase} from '../../base/ButtonBase';
+import {Box} from '../layout';
+import {Text} from '../typography';
 import {Colors} from '@/assets/styles';
 
 export const Button = ({fontSize = 12, px = 40, py = 10, outline, children, ...props}) => (
