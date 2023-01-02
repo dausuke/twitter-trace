@@ -1,18 +1,14 @@
 import {css} from '@emotion/react';
-import {AddTweetButton, NaviInPage} from '@/components/parts';
-import {HeaderButton, Box, Icon, Avator} from '@/components/atoms';
-import {Avator_A} from '@/features/mock/avators';
+import {AddTweetButton, NaviInPage, HeaderAvator} from '@/components/parts';
+import {HeaderButton, Box, Icon} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import mock from '../mock';
 import {NoticeItem} from '../components/NoticeItem';
+import Mock from '@/features/users/mock';
 
 export const Notification = () => {
   const headerOption = {
-    headerLeft: (
-      <HeaderButton>
-        <Avator image={Avator_A} size={30} />
-      </HeaderButton>
-    ),
+    headerLeft: <HeaderAvator user={Mock.me} />,
     headerRight: (
       <HeaderButton>
         <Icon.SettingIcon color={Colors.Icon.Black} />

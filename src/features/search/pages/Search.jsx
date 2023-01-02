@@ -1,17 +1,13 @@
 import {css} from '@emotion/react';
 import {SearchInput} from '../components/SearchInput';
 import mock from '@/features/feed/mock';
-import {AddTweetButton, TweetItem, NaviInPage} from '@/components/parts';
-import {HeaderButton, Box, Avator} from '@/components/atoms';
-import {Avator_A} from '@/features/mock/avators';
+import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
+import {Box} from '@/components/atoms';
+import Mock from '@/features/users/mock';
 
 export const Search = () => {
   const headerOption = {
-    headerLeft: (
-      <HeaderButton>
-        <Avator image={Avator_A} size={30} />
-      </HeaderButton>
-    ),
+    headerLeft: <HeaderAvator user={Mock.me} />,
     content: <SearchInput />,
   };
 

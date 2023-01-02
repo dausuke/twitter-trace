@@ -1,16 +1,12 @@
 import {css} from '@emotion/react';
-import {AddTweetButton, TweetItem, NaviInPage} from '@/components/parts';
-import {HeaderButton, Box, Avator} from '@/components/atoms';
+import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
+import {Box} from '@/components/atoms';
 import mock from '../mock';
-import {Avator_A} from '@/features/mock/avators';
+import Mock from '@/features/users/mock';
 
 export const Feed = () => {
   const headerOption = {
-    headerLeft: (
-      <HeaderButton>
-        <Avator image={Avator_A} size={30} />
-      </HeaderButton>
-    ),
+    headerLeft: <HeaderAvator user={Mock.me} />,
     title: 'ホーム',
     titleStyle: {
       textAlign: 'center',
