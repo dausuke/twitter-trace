@@ -1,4 +1,4 @@
 export {NaviInPage} from './NaviInPage';
-export {Avator} from './Avator';
+export {ModalPage} from './ModalPage';
 export {TweetItem} from './TweetItem';
 export {AddTweetButton} from './AddTweetButton';

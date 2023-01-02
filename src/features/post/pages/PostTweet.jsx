@@ -1,8 +1,8 @@
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router';
-import {Box, TextArea, HeaderButton} from '@/components/atoms';
-import {Avator, NaviInPage} from '@/components/parts';
-import Avator_A from '@/features/tweets/mock/images/A.png';
+import {Box, TextArea, HeaderButton, Avator} from '@/components/atoms';
+import {ModalPage} from '@/components/parts';
+import {Avator_A} from '@/features/mock/avators';
 import {Colors} from '@/assets/styles';
 import {Icon} from '@/components/atoms';
 import {ActionButton} from '../components';
@@ -15,7 +15,7 @@ export const PostTweet = () => {
   };
 
   return (
-    <NaviInPage headerOption={headerOption}>
+    <ModalPage headerOption={headerOption}>
       <Box row css={container}>
         <Avator size={48} image={Avator_A} />
         <Box css={content}>
@@ -37,7 +37,7 @@ export const PostTweet = () => {
           </Box>
         </Box>
       </Box>
-    </NaviInPage>
+    </ModalPage>
   );
 };
 

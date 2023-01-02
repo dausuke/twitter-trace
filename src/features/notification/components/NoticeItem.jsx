@@ -1,6 +1,5 @@
 import {css} from '@emotion/react';
-import {Box, Text} from '@/components/atoms';
-import {Avator} from '@/components/parts';
+import {Box, Text, Avator} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 
 const AVATOR_SIZE = 34;
