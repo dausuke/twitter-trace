@@ -24,6 +24,7 @@ export const Colors = {
     Like: '#FC506F',
     Comment: '#1D9BF0',
     Retweet: '#23BD09',
+    Black: '#0F1419',
   },
   KeyColor: {
     Primary: '#1D9BF0',
