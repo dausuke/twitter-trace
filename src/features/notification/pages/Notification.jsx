@@ -1,7 +1,6 @@
 import {css} from '@emotion/react';
-import {NaviInPage, Avator} from '@/components/parts';
+import {AddTweetButton, NaviInPage, Avator} from '@/components/parts';
 import {HeaderButton, Box, Icon} from '@/components/atoms';
-import {AddTweetButton} from '@/features/tweets/components';
 import {Avator_A} from '@/features/mock/avators';
 import {Colors} from '@/assets/styles';
 import mock from '../mock';

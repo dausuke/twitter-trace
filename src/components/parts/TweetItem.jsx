@@ -1,13 +1,13 @@
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
 import {Box, Text} from '@/components/atoms';
-import {IconField} from './IconField';
+import {IconField} from '../../features/tweets/components/IconField';
 import {Avator} from '@/components/parts';
 import {Colors} from '@/assets/styles';
 
 const CONTENT = window.innerWidth - 32 - 48 - 10;
 
-export const Tweet = ({item}) => {
+export const TweetItem = ({item}) => {
   const {user_name, account_name, body, created_at, avator, ...statusData} = item;
 
   const calcCreatedDiff = createdAt => {
