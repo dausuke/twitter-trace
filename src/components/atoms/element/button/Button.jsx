@@ -6,7 +6,7 @@ import {Colors} from '@/assets/styles';
 
 export const Button = ({fontSize = 12, px = 40, py = 10, outline, children, ...props}) => (
   <Box justifyContent="center" alignItems="center" css={[container, !outline ? defaultStyle : outlineStyle]}>
-    <ButtonBase css={[button, {padding: `${py}px ${px}px`}]} {...props}>
+    <ButtonBase css={{padding: `${py}px ${px}px`}} {...props}>
       <Text
         css={baseText}
         color={!outline ? Colors.Text.White : Colors.Text.Primary}
@@ -21,11 +21,6 @@ export const Button = ({fontSize = 12, px = 40, py = 10, outline, children, ...p
 const container = css`
   border-radius: 999px;
   overflow: hidden;
-`;
-
-const button = css`
-  width: 100%;
-  height: 100%;
 `;
 
 const defaultStyle = css`
