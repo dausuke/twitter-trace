@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
-import {Box, Page} from '../atoms';
-import {PageHeader} from './PageHeader';
-import {BottomNavi} from './navi/BottomNavi';
+import {Box, Page} from '../../atoms';
+import {PageHeader} from '../header/PageHeader';
+import {BottomNavi} from '../navi/BottomNavi';
 
 export const NaviInPage = ({children, headerOption}) => (
   <Page>

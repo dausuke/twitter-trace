@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
-import {Box, Page} from '../atoms';
-import {PageHeader} from './PageHeader';
+import {Box, Page} from '../../atoms';
+import {PageHeader} from '../header/PageHeader';
 
 export const ModalPage = ({children, headerOption}) => (
   <Page>

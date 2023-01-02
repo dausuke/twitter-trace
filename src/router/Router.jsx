@@ -1,5 +1,5 @@
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
-import {Feed} from '@/features/tweets/pages/Feed';
+import {Feed} from '@/features/feed/pages/Feed';
 import {PostTweet} from '@/features/post/pages/PostTweet';
 import {Search} from '@/features/search/pages/Search';
 import {Notification} from '@/features/notification/pages/Notification';

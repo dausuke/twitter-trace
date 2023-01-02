@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Box, Text} from '../atoms';
+import {Box, Text} from '../../atoms';
 import {Colors} from '@/assets/styles';
 
 const HEIGHT = 56;

@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
 import {Box, Text, Avator} from '@/components/atoms';
-import {IconField} from '../../features/tweets/components/IconField';
+import {IconField} from './IconField';
 import {Colors} from '@/assets/styles';
 
 const CONTENT = window.innerWidth - 32 - 48 - 10;

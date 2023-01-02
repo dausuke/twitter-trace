@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 import {SearchInput} from '../components/SearchInput';
-import mock from '@/features/tweets/mock';
+import mock from '@/features/feed/mock';
 import {AddTweetButton, TweetItem, NaviInPage} from '@/components/parts';
 import {HeaderButton, Box, Avator} from '@/components/atoms';
 import {Avator_A} from '@/features/mock/avators';
