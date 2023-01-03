@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 import {useParams, useNavigate} from 'react-router';
-import {HeaderButton, Box, Icon, Button, Avator, Text} from '@/components/atoms';
+import {HeaderButton, Box, Icon, Button, Avator, Text, Pressable} from '@/components/atoms';
 import {AddTweetButton, TweetItem, NaviInPage} from '@/components/parts';
 import {Colors} from '@/assets/styles';
 import Mock from '../mock';
@@ -25,6 +25,10 @@ export const User = () => {
     background-image: url(${me.profile_background});
   `;
 
+  const onFollowClick = number => {
+    navigate(`follow?selectIndex=${number}`);
+  };
+
   return (
     <NaviInPage headerOption={headerOption}>
       <Box>
@@ -45,22 +49,26 @@ export const User = () => {
             <Text color={Colors.Text.Seconday}>{me.account_name}</Text>
           </Box>
           <Box row css={followInfo}>
-            <Box row css={followWrap} alignItems="center">
-              <Text fontSize={14} fontWeight={700}>
-                {me.follow_count}
-              </Text>
-              <Text fontSize={12} color={Colors.Text.Seconday}>
-                フォロー
-              </Text>
-            </Box>
-            <Box row css={followWrap} alignItems="center">
-              <Text fontSize={14} fontWeight={700}>
-                {me.follwer_count}
-              </Text>
-              <Text fontSize={12} color={Colors.Text.Seconday}>
-                フォロワー
-              </Text>
-            </Box>
+            <Pressable onClick={() => onFollowClick(0)} hitSlop={4}>
+              <Box row css={followWrap} alignItems="center">
+                <Text fontSize={14} fontWeight={700}>
+                  {me.follow_count}
+                </Text>
+                <Text fontSize={12} color={Colors.Text.Seconday}>
+                  フォロー
+                </Text>
+              </Box>
+            </Pressable>
+            <Pressable onClick={() => onFollowClick(1)} hitSlop={4}>
+              <Box row css={followWrap} alignItems="center">
+                <Text fontSize={14} fontWeight={700}>
+                  {me.follwer_count}
+                </Text>
+                <Text fontSize={12} color={Colors.Text.Seconday}>
+                  フォロワー
+                </Text>
+              </Box>
+            </Pressable>
           </Box>
         </Box>
         <Box>

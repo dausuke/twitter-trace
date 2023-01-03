@@ -16,3 +16,5 @@ export const ROUTE_OBJECT = [
     icon: 'Mail',
   },
 ];
+
+export const CONTENT_WIDTH = window.innerWidth - 32 - 48 - 10;

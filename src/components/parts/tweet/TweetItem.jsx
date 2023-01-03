@@ -3,8 +3,7 @@ import dayjs from 'dayjs';
 import {Box, Text, Avator} from '@/components/atoms';
 import {IconField} from './IconField';
 import {Colors} from '@/assets/styles';
-
-const CONTENT = window.innerWidth - 32 - 48 - 10;
+import {CONTENT_WIDTH} from '@/config/RouteObject';
 
 export const TweetItem = ({item}) => {
   const {user_name, account_name, body, created_at, avator, ...statusData} = item;
@@ -71,7 +70,7 @@ const container = css`
 `;
 
 const content = css`
-  width: ${CONTENT}px;
+  width: ${CONTENT_WIDTH}px;
   gap: 16px;
 `;
 
