@@ -11,6 +11,7 @@ export const Button = ({fontSize = 12, px = 40, py = 10, outline, children, ...p
         css={baseText}
         color={!outline ? Colors.Text.White : Colors.Text.Primary}
         fontSize={fontSize}
+        fontWeight={700}
         textAlign="center">
         {children}
       </Text>
