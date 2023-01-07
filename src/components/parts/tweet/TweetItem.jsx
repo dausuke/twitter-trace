@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import {Box, Text, Avator} from '@/components/atoms';
 import {IconField} from './IconField';
 import {Colors} from '@/assets/styles';
-import {CONTENT_WIDTH} from '@/config/RouteObject';
+import {CONTENT_WIDTH} from '@/config';
 
 export const TweetItem = ({item}) => {
   const {user_name, account_name, body, created_at, avator, ...statusData} = item;

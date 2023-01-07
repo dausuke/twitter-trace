@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import {Box} from '@/components/atoms';
 import {NaviItem} from './NaviItem';
-import {ROUTE_OBJECT} from '@/config/RouteObject';
+import {ROUTE_OBJECT} from '@/config';
 import {Colors} from '@/assets/styles';
 
 export const BottomNavi = () => {
