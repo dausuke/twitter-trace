@@ -6,7 +6,7 @@ import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 
 export const TweetItem = ({item}) => {
-  const {user_name, account_name, body, created_at, avator, ...statusData} = item;
+  const {user, body, created_at, ...statusData} = item;
 
   const calcCreatedDiff = createdAt => {
     const now = dayjs();
@@ -31,17 +31,17 @@ export const TweetItem = ({item}) => {
   return (
     <Box row css={container}>
       <Box>
-        <Avator image={avator} size={48} />
+        <Avator image={user.avator} size={48} />
       </Box>
       <Box css={content}>
         <Box css={textField}>
           <Box row css={header} alignItems="center">
-            <div css={user}>
+            <div css={userWrap}>
               <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
-                {user_name}
+                {user.name}
               </Text>
               <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                @{account_name}
+                @{user.account_name}
               </Text>
             </div>
             <Box row css={time} alignItems="center">
@@ -83,7 +83,7 @@ const header = css`
   width: 100%;
 `;
 
-const user = css`
+const userWrap = css`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
