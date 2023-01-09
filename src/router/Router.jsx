@@ -1,10 +1,10 @@
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
-import {Feed} from '@/features/feed/pages/Feed';
-import {PostTweet} from '@/features/post/pages/PostTweet';
-import {Search} from '@/features/search/pages/Search';
-import {Notification} from '@/features/notification/pages/Notification';
-import {User} from '@/features/users/page/User';
-import {Follow} from '@/features/users/page/Follow';
+import {Feed} from '@/features/feed/pages';
+import {PostTweet} from '@/features/post/pages';
+import {Search} from '@/features/search/pages';
+import {Notification} from '@/features/notification/pages';
+import {User, Follow} from '@/features/users/page';
+import {Auth} from '@/features/auth/pages';
 
 const createRoutes = element => createBrowserRouter(createRoutesFromElements(element));
 
@@ -16,6 +16,7 @@ const routes = createRoutes(
     <Route path="user/:accountName" element={<User />} />
     <Route path="user/:accountName/follow" element={<Follow />} />
     <Route path="post/tweet" element={<PostTweet />} />
+    <Route path="auth" element={<Auth />} />
   </Route>,
 );
 
