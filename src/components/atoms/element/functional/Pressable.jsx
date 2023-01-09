@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import {Box} from '../layout';
 
-export const Pressable = ({children, hitSlop, ...props}) => {
+export const Pressable = ({children, hitSlop, onClick, disabled, ...props}) => {
   const content = css`
     ::after {
       width: calc(100% + ${hitSlop}px);
@@ -17,9 +17,14 @@ export const Pressable = ({children, hitSlop, ...props}) => {
     }
   `;
 
+  const handleClick = () => {
+    if (disabled) return;
+    onClick();
+  };
+
   return (
     <Box css={container}>
-      <div css={content} {...props}>
+      <div css={content} onClick={handleClick} {...props}>
         {children}
       </div>
     </Box>
