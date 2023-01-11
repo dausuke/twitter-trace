@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
-import {Box, Text, Avator} from '@/components/atoms';
+import {Box, Text, Avator, Icon} from '@/components/atoms';
 import {AuthDialog} from '@/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
@@ -55,23 +55,26 @@ export const TweetItem = ({item}) => {
         </Box>
         <Box css={content}>
           <Box css={textField}>
-            <Box row css={header} alignItems="center">
-              <div css={userWrap}>
-                <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
-                  {user.name}
-                </Text>
-                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                  @{user.account_name}
-                </Text>
-              </div>
-              <Box row css={time} alignItems="center">
-                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                  •
-                </Text>
-                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                  {calcCreatedDiff(created_at)}
-                </Text>
+            <Box row css={header} alignItems="center" justifyContent="space-between">
+              <Box row alignItems="center">
+                <div css={userWrap}>
+                  <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
+                    {user.name}
+                  </Text>
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    @{user.account_name}
+                  </Text>
+                </div>
+                <Box row css={time} alignItems="center">
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    •
+                  </Text>
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    {calcCreatedDiff(created_at)}
+                  </Text>
+                </Box>
               </Box>
+              <Icon.MenuIcon />
             </Box>
             <Box>
               <Text>{body}</Text>
