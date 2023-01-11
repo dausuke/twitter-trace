@@ -1,20 +1,38 @@
+import {useState, useEffect} from 'react';
 import {css} from '@emotion/react';
-import {SearchInput} from '../components/SearchInput';
-import mock from '@/features/feed/mock';
 import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
 import {Box} from '@/components/atoms';
 import Mock from '@/features/users/mock';
+import {getTweet} from '../api/getTweet';
 
-export const Search = () => {
+export const Feed = () => {
+  const [tweets, setTweets] = useState([]);
+
   const headerOption = {
     headerLeft: <HeaderAvator user={Mock.me} />,
-    content: <SearchInput />,
+    title: 'ホーム',
+    titleStyle: {
+      textAlign: 'center',
+    },
   };
+
+  const fetchTweets = async () => {
+    try {
+      const response = await getTweet();
+      setTweets(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchTweets();
+  }, []);
 
   return (
     <NaviInPage headerOption={headerOption}>
       <Box css={content}>
-        {mock.map((data, index) => (
+        {tweets.map((data, index) => (
           <TweetItem item={data} key={index} />
         ))}
         <AddTweetButton />
