@@ -7,6 +7,7 @@ import {getTweet} from '../api/getTweet';
 
 export const Feed = () => {
   const [tweets, setTweets] = useState([]);
+
   const headerOption = {
     headerLeft: <HeaderAvator user={Mock.me} />,
     title: 'ホーム',
@@ -19,7 +20,6 @@ export const Feed = () => {
     try {
       const response = await getTweet();
       setTweets(response.data);
-      console.log(response.data);
     } catch (e) {
       console.error(e);
     }

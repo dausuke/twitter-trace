@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
+import {useNavigate} from 'react-router-dom';
 import {Box, Text, Button} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {AuhtInput} from '../components/AuthInput';
@@ -48,6 +49,7 @@ const FORM_CONFIG = [
 export const Auth = () => {
   const [state, setState] = useState(initialState);
   const [error, setError] = useState(initialError);
+  const navigate = useNavigate();
 
   const isDisabled = Object.values(state).every(val => !val);
 
@@ -69,8 +71,8 @@ export const Auth = () => {
       }
 
       const response = await createUser(state);
-      console.log(response.data);
-      // localStorage.setItem(JSON.stringify(response.data));
+      localStorage.setItem('token', response.data.token);
+      navigate('/');
     } catch (e) {
       console.log(e);
     }

@@ -1,12 +1,16 @@
+import {useState} from 'react';
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
 import {Box, Text, Avator} from '@/components/atoms';
-import {IconField} from './IconField';
+import {AuthDialog} from '@/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
+import {checkLogin} from '@/utils/auth';
+import {TweetStatusIcon} from './TweetStatusIcon';
 
 export const TweetItem = ({item}) => {
   const {user, body, created_at, ...statusData} = item;
+  const [isShowDialog, setIsShowDialog] = useState(false);
 
   const calcCreatedDiff = createdAt => {
     const now = dayjs();
@@ -28,38 +32,74 @@ export const TweetItem = ({item}) => {
     return createdDate.format('YYYY/MM/DD');
   };
 
+  const authGuard = () => {
+    const isLogin = checkLogin();
+    setIsShowDialog(!isLogin);
+  };
+
+  const handleClickIcon = () => {
+    authGuard();
+  };
+
+  const onDialogBackgroundClick = () => {
+    setIsShowDialog(false);
+  };
+
   return (
-    <Box row css={container}>
-      <Box>
-        <Avator image={user.avator} size={48} />
-      </Box>
-      <Box css={content}>
-        <Box css={textField}>
-          <Box row css={header} alignItems="center">
-            <div css={userWrap}>
-              <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
-                {user.name}
-              </Text>
-              <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                @{user.account_name}
-              </Text>
-            </div>
-            <Box row css={time} alignItems="center">
-              <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                •
-              </Text>
-              <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                {calcCreatedDiff(created_at)}
-              </Text>
+    <>
+      <AuthDialog isShow={isShowDialog} onBackgroundClick={onDialogBackgroundClick} />
+
+      <Box row css={container}>
+        <Box>
+          <Avator image={user.avator} size={48} />
+        </Box>
+        <Box css={content}>
+          <Box css={textField}>
+            <Box row css={header} alignItems="center">
+              <div css={userWrap}>
+                <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
+                  {user.name}
+                </Text>
+                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                  @{user.account_name}
+                </Text>
+              </div>
+              <Box row css={time} alignItems="center">
+                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                  •
+                </Text>
+                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                  {calcCreatedDiff(created_at)}
+                </Text>
+              </Box>
+            </Box>
+            <Box>
+              <Text>{body}</Text>
             </Box>
           </Box>
-          <Box>
-            <Text>{body}</Text>
+          <Box row css={iconWrap} justifyContent="space-between" alignItems="center">
+            <TweetStatusIcon
+              icon="comment"
+              isActive={statusData.is_commented}
+              count={statusData.commnet_count}
+              onClick={handleClickIcon}
+            />
+            <TweetStatusIcon
+              icon="retweet"
+              isActive={statusData.is_retweeted}
+              count={statusData.retweet_count}
+              onClick={handleClickIcon}
+            />
+            <TweetStatusIcon
+              icon="like"
+              isActive={statusData.is_liked}
+              count={statusData.like_count}
+              onClick={handleClickIcon}
+            />
           </Box>
         </Box>
-        <IconField data={statusData} />
       </Box>
-    </Box>
+    </>
   );
 };
 
@@ -97,4 +137,8 @@ const time = css`
 const text = css`
   margin-left: 2px;
   line-height: 120%;
+`;
+
+const iconWrap = css`
+  width: 100%;
 `;

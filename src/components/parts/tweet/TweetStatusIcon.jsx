@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {css} from '@emotion/react';
 import {Text, Box} from '@/components/atoms';
 import {Icon} from '@/components/atoms';
@@ -16,10 +15,7 @@ const calcIcon = ({icon, like, comment, retweet}) => {
 };
 
 export const TweetStatusIcon = ({icon, isActive, count, onClick}) => {
-  const [statusCount, setStatusCount] = useState(count);
-  const [isActived, setIsActived] = useState(isActive);
-
-  const statusColor = !isActived
+  const statusColor = !isActive
     ? Colors.Icon.Primary
     : calcIcon({icon, like: Colors.Icon.Like, comment: Colors.Icon.Comment, retweet: Colors.Icon.Retweet});
 
@@ -30,23 +26,11 @@ export const TweetStatusIcon = ({icon, isActive, count, onClick}) => {
     retweet: <Icon.RetweetIcon color={statusColor} />,
   });
 
-  // const isOverThousand =
-
-  const handleClick = () => {
-    const newCount = isActived ? statusCount - 1 : statusCount + 1;
-    const newActive = !isActived;
-
-    setStatusCount(newCount);
-    setIsActived(newActive);
-
-    onClick?.(newActive);
-  };
-
   return (
-    <Box row css={container} alignItems="center" onClick={handleClick}>
+    <Box row css={container} alignItems="center" onClick={onClick}>
       {tweetStatusIcon}
       <Text color={statusColor} fontSize={12}>
-        {statusCount - 10000 >= 0 ? `${(statusCount / 10000).toFixed(1)}万` : statusCount}
+        {count - 10000 >= 0 ? `${(count / 10000).toFixed(1)}万` : count}
       </Text>
     </Box>
   );

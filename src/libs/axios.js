@@ -10,7 +10,7 @@ const api = axios.create({
 console.log(env.VITE_API_ENDPOINT);
 
 api.interceptors.request.use(config => {
-  const token = env.VITE_API_SECRET;
+  const token = localStorage.getItem('token');
   if (!!token && !!config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
