@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router';
 import {Box, TextArea, HeaderButton, Avator} from '@/components/atoms';
@@ -6,12 +7,41 @@ import {Avator_A} from '@/features/mock/avators';
 import {Colors} from '@/assets/styles';
 import {Icon} from '@/components/atoms';
 import {ActionButton} from '../components';
+import {createTweet} from '../api/createTweet';
 
 export const PostTweet = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [text, setText] = useState('');
+
+  const handleTextChange = text => {
+    setText(text);
+  };
+
+  const postTweet = async () => {
+    if (isLoading) return;
+    try {
+      setIsLoading(true);
+
+      const data = {body: text};
+
+      await createTweet(data);
+      navigate('/');
+    } catch (e) {
+      console.error(e);
+      alert('ツイートの投稿に失敗しました');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const headerOption = {
     headerLeft: <HeaderButton onClick={() => navigate(-1)}>キャンセル</HeaderButton>,
-    headerRight: <HeaderButton isButton>ツイートする</HeaderButton>,
+    headerRight: (
+      <HeaderButton onClick={postTweet} isButton>
+        ツイートする
+      </HeaderButton>
+    ),
   };
 
   return (
@@ -20,7 +50,10 @@ export const PostTweet = () => {
         <Avator size={48} image={Avator_A} />
         <Box css={content}>
           <Box css={form}>
-            <TextArea placeholder="いまどうしてる？" />
+            <TextArea
+              onChange={event => handleTextChange(event.target.value)}
+              placeholder="いまどうしてる？"
+            />
           </Box>
           <Box row css={inputFooter}>
             <ActionButton
