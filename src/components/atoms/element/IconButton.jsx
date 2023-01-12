@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
-import {Pressable} from '../functional';
-import {Box} from '..';
+import {Pressable} from './Pressable';
+import Box from './Box';
 
 export const IconButton = ({icon, size, color, onClick, ...props}) => (
   <Box

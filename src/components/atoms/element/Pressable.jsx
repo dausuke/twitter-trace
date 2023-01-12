@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Box} from '../layout';
+import Box from './Box';
 
 export const Pressable = ({children, hitSlop, onClick, disabled, ...props}) => {
   const content = css`

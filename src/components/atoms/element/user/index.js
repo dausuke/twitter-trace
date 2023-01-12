@@ -1,1 +1,0 @@
-export {Avator} from './Avator';

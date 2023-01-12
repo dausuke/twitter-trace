@@ -1,9 +1,10 @@
 import {css} from '@emotion/react';
 import {Colors} from '@/assets/styles';
+import {Image} from './Image';
 
 export const Avator = ({image, size = 90}) => (
   <div css={[avator, {width: size, height: size}]}>
-    <img src={image} css={avatorImage} />
+    <Image src={image} css={avatorImage} />
   </div>
 );
 

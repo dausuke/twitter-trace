@@ -1,6 +1,11 @@
-export * from './layout';
-export * from './form';
-export * from './typography';
-export * from './functional';
-export * from './button';
-export * from './user';
+export {Button} from './Button';
+export {IconButton} from './IconButton';
+export {HeaderButton} from './HeaderButton';
+export {Input} from './Input';
+export {TextArea} from './TextArea';
+export {Pressable} from './Pressable';
+export {default as Box} from './Box';
+export {Page} from './Page';
+export {Text} from './Text';
+export {Avator} from './Avator';
+export {Image} from './Image';
