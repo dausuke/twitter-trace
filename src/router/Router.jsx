@@ -3,8 +3,7 @@ import {Feed, Search} from '@/features/tweet/pages';
 import {PostTweet} from '@/features/post/pages';
 import {Notification} from '@/features/notification/pages';
 import {User, Follow} from '@/features/users/page';
-import {Auth} from '@/features/auth/pages';
-import {AuthRouteGuard} from '@/features/auth/pages/AuthRouteGuard';
+import {Register, Login, AuthRouteGuard} from '@/features/auth/pages';
 
 const createRoutes = element => createBrowserRouter(createRoutesFromElements(element));
 
@@ -18,7 +17,8 @@ const routes = createRoutes(
       <Route path="user/:accountName/follow" element={<Follow />} />
       <Route path="post/tweet" element={<PostTweet />} />
     </Route>
-    <Route path="register" element={<Auth />} />
+    <Route path="register" element={<Register />} />
+    <Route path="login" element={<Login />} />
   </Route>,
 );
 

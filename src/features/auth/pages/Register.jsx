@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router-dom';
+import {isValidationError} from '@/utils/formRequest';
 import {Box, Text, Button} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {AuhtInput} from '../components/AuthInput';
@@ -46,12 +47,12 @@ const FORM_CONFIG = [
   },
 ];
 
-export const Auth = () => {
+export const Register = () => {
   const [state, setState] = useState(initialState);
   const [error, setError] = useState(initialError);
   const navigate = useNavigate();
 
-  const isDisabled = Object.values(state).every(val => !val);
+  const isDisabled = Object.values(state).some(val => !val);
 
   const handleTextChange = (value, key) => {
     const newState = {...state, [key]: value};
@@ -75,14 +76,20 @@ export const Auth = () => {
       navigate('/');
     } catch (e) {
       console.log(e);
+      isValidationError(e.response.status);
     }
   };
 
   return (
     <Box css={container}>
-      <Text fontWeight={700} fontSize={20} textAlign="center">
-        Twitter Trace
-      </Text>
+      <Box css={title}>
+        <Text fontWeight={700} fontSize={20} textAlign="center">
+          Twitter Trace
+        </Text>
+        <Text fontWeight={700} fontSize={18} textAlign="center">
+          Register
+        </Text>
+      </Box>
       <Box css={form}>
         {FORM_CONFIG.map(config => (
           <Box key={config.key}>
@@ -118,6 +125,10 @@ const container = css`
   flex: 1;
   padding: 32px 24px;
   gap: 80px;
+`;
+
+const title = css`
+  gap: 8px;
 `;
 
 const form = css`
