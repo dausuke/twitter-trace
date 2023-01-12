@@ -75,7 +75,7 @@ export const Register = () => {
       localStorage.setItem('token', response.data.token);
       navigate('/');
     } catch (e) {
-      console.log(e);
+      console.error(e);
       isValidationError(e.response.status);
     }
   };
