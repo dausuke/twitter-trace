@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
 import {Box} from '@/components/atoms';
 import Mock from '@/features/users/mock';
-import {getTweet, tweetAction} from '../api';
+import {getTweets, tweetAction} from '../api';
 
 export const Feed = () => {
   const [tweets, setTweets] = useState([]);
@@ -21,9 +21,9 @@ export const Feed = () => {
     alert(`${action}の投稿に失敗しました`);
   };
 
-  const fetchTweets = async () => {
+  const onFetchTweets = async () => {
     try {
-      const response = await getTweet();
+      const response = await getTweets();
       setTweets(response.data);
     } catch (e) {
       console.error(e);
@@ -42,12 +42,19 @@ export const Feed = () => {
   };
 
   useEffect(() => {
-    fetchTweets();
+    onFetchTweets();
   }, []);
+
+  useEffect(() => {
+    if (!!tweets.length) {
+      const container = document.getElementById('feedContainer');
+      container.scrollIntoView(false);
+    }
+  }, [tweets]);
 
   return (
     <NaviInPage headerOption={headerOption}>
-      <Box css={content}>
+      <Box css={content} id="feedContainer">
         {tweets.map((data, index) => (
           <TweetItem item={data} key={index} onStatusIconClick={handleStatusIconClick} />
         ))}

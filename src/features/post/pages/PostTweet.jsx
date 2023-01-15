@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
-import {useNavigate} from 'react-router';
+import {useNavigate, useLocation} from 'react-router-dom';
 import {Box, TextArea, HeaderButton, Avator} from '@/components/atoms';
 import {ModalPage} from '@/components/parts';
 import {Avator_A} from '@/features/mock/avators';
@@ -11,6 +11,7 @@ import {createTweet} from '../api/createTweet';
 
 export const PostTweet = () => {
   const navigate = useNavigate();
+  const {state} = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState('');
   const [previewImages, setPreviewImages] = useState([]);
@@ -61,6 +62,7 @@ export const PostTweet = () => {
         for (const image of images) params.append('images[]', image);
       }
       params.append('body', text);
+      state?.commentTo !== undefined && params.append('comment_to', state.commentTo);
 
       await createTweet(params, config);
       navigate('/');
@@ -91,7 +93,7 @@ export const PostTweet = () => {
           <Box css={inputwWrap}>
             <TextArea
               onChange={event => handleTextChange(event.target.value)}
-              placeholder="いまどうしてる？"
+              placeholder={state?.commentTo === undefined ? '今どうしてる？' : '返信をツイート'}
             />
           </Box>
         </Box>

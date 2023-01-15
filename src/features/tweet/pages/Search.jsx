@@ -4,7 +4,7 @@ import {SearchInput} from '../components/SearchInput';
 import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
 import {Box} from '@/components/atoms';
 import Mock from '@/features/users/mock';
-import {getTweet} from '../api/getTweet';
+import {getTweets} from '../api/getTweets';
 
 export const Search = () => {
   const [tweets, setTweets] = useState([]);
@@ -13,9 +13,9 @@ export const Search = () => {
     content: <SearchInput />,
   };
 
-  const fetchTweets = async () => {
+  const onFetchTweets = async () => {
     try {
-      const response = await getTweet();
+      const response = await getTweets();
       setTweets(response.data);
     } catch (e) {
       console.error(e);
@@ -23,7 +23,7 @@ export const Search = () => {
   };
 
   useEffect(() => {
-    fetchTweets();
+    onFetchTweets();
   }, []);
 
   return (

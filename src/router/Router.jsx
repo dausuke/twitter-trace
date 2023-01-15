@@ -1,5 +1,5 @@
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
-import {Feed, Search} from '@/features/tweet/pages';
+import {Feed, Search, Thread} from '@/features/tweet/pages';
 import {PostTweet} from '@/features/post/pages';
 import {Notification} from '@/features/notification/pages';
 import {User, Follow} from '@/features/users/page';
@@ -11,6 +11,7 @@ const routes = createRoutes(
   <Route path="/" errorElement={<div>error</div>}>
     <Route index element={<Feed />} />
     <Route element={<AuthRouteGuard />}>
+      <Route path="tweet/:tweetId" element={<Thread />} />
       <Route path="search" element={<Search />} />
       <Route path="notification" element={<Notification />} />
       <Route path="user/:accountName" element={<User />} />

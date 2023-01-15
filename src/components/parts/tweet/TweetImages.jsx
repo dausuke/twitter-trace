@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import {Colors} from '@/assets/styles';
 
-export const TweetImages = ({images}) => {
+export const TweetImages = ({images, imageHeight = 200}) => {
   const clacPosition = (length, index) => {
     switch (length) {
       case 1:
@@ -16,9 +16,17 @@ export const TweetImages = ({images}) => {
   };
 
   return (
-    <div css={container}>
+    <div css={[container, {height: imageHeight}]}>
       {images.map((data, index, {length}) => (
-        <img key={data.id} src={data.image} css={[image, clacPosition(length, index)]} />
+        <img
+          key={data.id}
+          src={data.image}
+          css={[
+            image,
+            {maxHeight: length >= 3 ? (imageHeight - 4) / 2 : imageHeight},
+            clacPosition(length, index),
+          ]}
+        />
       ))}
     </div>
   );
@@ -30,7 +38,6 @@ const container = css`
   grid-template-rows: 1fr 1fr;
   gap: 4px;
   width: 100%;
-  height: 200px;
   border-radius: 12px;
   overflow: hidden;
   outline: 1px solid ${Colors.Border.Primary};
