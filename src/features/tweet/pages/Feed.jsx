@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
 import {Box} from '@/components/atoms';
 import Mock from '@/features/users/mock';
-import {getTweet, likeTweet} from '../api';
+import {getTweet, tweetAction} from '../api';
 
 export const Feed = () => {
   const [tweets, setTweets] = useState([]);
@@ -16,22 +16,28 @@ export const Feed = () => {
     },
   };
 
+  const handleActionError = type => {
+    const action = type === 'like' ? 'いいね' : type === 'retweet' ? 'リツイート' : 'コメント';
+    alert(`${action}の投稿に失敗しました`);
+  };
+
   const fetchTweets = async () => {
     try {
       const response = await getTweet();
       setTweets(response.data);
     } catch (e) {
       console.error(e);
+      alert('ツイートを読み込めませんでした');
     }
   };
 
   const handleStatusIconClick = async (tweetId, type) => {
-    const request = type === 'like' ? likeTweet : null;
     try {
-      const response = await request(tweetId);
+      const response = await tweetAction(tweetId, type);
       setTweets(response.data);
     } catch (e) {
       console.error(e);
+      handleActionError(type);
     }
   };
 

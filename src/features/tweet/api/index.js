@@ -1,2 +1,2 @@
 export {getTweet} from './getTweet';
-export {likeTweet} from './liketweet';
+export {tweetAction} from './tweetAction';
