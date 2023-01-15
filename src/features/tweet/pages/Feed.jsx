@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
 import {Box} from '@/components/atoms';
 import Mock from '@/features/users/mock';
-import {getTweet} from '../api/getTweet';
+import {getTweet, likeTweet} from '../api';
 
 export const Feed = () => {
   const [tweets, setTweets] = useState([]);
@@ -25,6 +25,16 @@ export const Feed = () => {
     }
   };
 
+  const handleStatusIconClick = async (tweetId, type) => {
+    const request = type === 'like' ? likeTweet : null;
+    try {
+      const response = await request(tweetId);
+      setTweets(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   useEffect(() => {
     fetchTweets();
   }, []);
@@ -33,7 +43,7 @@ export const Feed = () => {
     <NaviInPage headerOption={headerOption}>
       <Box css={content}>
         {tweets.map((data, index) => (
-          <TweetItem item={data} key={index} />
+          <TweetItem item={data} key={index} onStatusIconClick={handleStatusIconClick} />
         ))}
         <AddTweetButton />
       </Box>

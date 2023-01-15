@@ -37,5 +37,6 @@ export const TweetStatusIcon = ({icon, isActive, count, onClick}) => {
 };
 
 const container = css`
+  flex: 1;
   gap: 8px;
 `;

@@ -9,7 +9,7 @@ import {checkLogin} from '@/utils/auth';
 import {TweetStatusIcon} from './TweetStatusIcon';
 import {TweetImages} from './TweetImages';
 
-export const TweetItem = ({item}) => {
+export const TweetItem = ({item, onStatusIconClick}) => {
   const {user, body, created_at, images, ...statusData} = item;
   const [isShowDialog, setIsShowDialog] = useState(false);
 
@@ -38,8 +38,9 @@ export const TweetItem = ({item}) => {
     setIsShowDialog(!isLogin);
   };
 
-  const handleClickIcon = () => {
+  const handleClickIcon = type => {
     authGuard();
+    onStatusIconClick(item.id, type);
   };
 
   const onDialogBackgroundClick = () => {
@@ -90,20 +91,20 @@ export const TweetItem = ({item}) => {
             <TweetStatusIcon
               icon="comment"
               isActive={statusData.is_commented}
-              count={statusData.commnet_count}
-              onClick={handleClickIcon}
+              count={statusData.comment_count}
+              onClick={() => handleClickIcon('comment')}
             />
             <TweetStatusIcon
               icon="retweet"
               isActive={statusData.is_retweeted}
               count={statusData.retweet_count}
-              onClick={handleClickIcon}
+              onClick={() => handleClickIcon('retweet')}
             />
             <TweetStatusIcon
               icon="like"
               isActive={statusData.is_liked}
               count={statusData.like_count}
-              onClick={handleClickIcon}
+              onClick={() => handleClickIcon('like')}
             />
           </Box>
         </Box>
