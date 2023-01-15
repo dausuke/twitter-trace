@@ -7,9 +7,10 @@ import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 import {checkLogin} from '@/utils/auth';
 import {TweetStatusIcon} from './TweetStatusIcon';
+import {TweetImages} from './TweetImages';
 
 export const TweetItem = ({item}) => {
-  const {user, body, created_at, ...statusData} = item;
+  const {user, body, created_at, images, ...statusData} = item;
   const [isShowDialog, setIsShowDialog] = useState(false);
 
   const calcCreatedDiff = createdAt => {
@@ -76,8 +77,13 @@ export const TweetItem = ({item}) => {
               </Box>
               <Icon.MenuIcon />
             </Box>
-            <Box>
+            <Box css={tweetBody}>
               <Text>{body}</Text>
+              {images.length && (
+                <Box css={imageWrap}>
+                  <TweetImages images={images} />
+                </Box>
+              )}
             </Box>
           </Box>
           <Box row css={iconWrap} justifyContent="space-between" alignItems="center">
@@ -117,8 +123,12 @@ const content = css`
   gap: 16px;
 `;
 
-const textField = css`
+const tweetBody = css`
   gap: 8px;
+`;
+
+const textField = css`
+  gap: 4px;
   width: 100%;
 `;
 
@@ -135,6 +145,10 @@ const userWrap = css`
 const time = css`
   max-width: 94px;
   min-width: 32px;
+`;
+
+const imageWrap = css`
+  width: 100%;
 `;
 
 const text = css`
