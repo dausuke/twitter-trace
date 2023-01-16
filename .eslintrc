@@ -23,7 +23,7 @@
     "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "error",
     "no-extra-boolean-cast": "off",
-    "no-unused-vars": ["warn", {"args": "none"}],
+    "no-unused-vars": ["warn", {"varsIgnorePattern": "_"}],
     "prettier/prettier": [
       "error",
       {
