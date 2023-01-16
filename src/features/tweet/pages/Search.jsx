@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import {css} from '@emotion/react';
 import {SearchInput} from '../components/SearchInput';
-import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
-import {Box} from '@/components/atoms';
+import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/common/components/parts';
+import {Box} from '@/common/components/atoms';
 import Mock from '@/features/users/mock';
 import {getTweets} from '../api/getTweets';
 

@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import {css} from '@emotion/react';
-import {Box} from '@/components/atoms';
-import {NaviIcon} from '@/components/atoms';
+import {Box} from '@/common/components/atoms';
+import {NaviIcon} from '@/common/components/atoms';
 
 export const NaviItem = ({path, icon}) => {
   const renderIcon = isActive => {

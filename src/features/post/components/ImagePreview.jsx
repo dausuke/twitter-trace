@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Image, Box} from '@/components/atoms';
+import {Image, Box} from '@/common/components/atoms';
 
 export const ImagePreview = ({images}) => {
   return (

@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router-dom';
-import {Text, Box, Button} from '@/components/atoms';
+import {Text, Box, Button} from '@/common/components/atoms';
 import useModalScrollLock from '@/hooks/useModalScrollLock';
 
 export const AuthDialog = ({isShow, onBackgroundClick}) => {

@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import {css} from '@emotion/react';
-import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
-import {Box} from '@/components/atoms';
+import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/common/components/parts';
+import {Box} from '@/common/components/atoms';
 import Mock from '@/features/users/mock';
-import {getTweets, tweetAction} from '../api';
+import {getTweets} from '../api';
 
 export const Feed = () => {
   const [tweets, setTweets] = useState([]);
@@ -16,11 +16,6 @@ export const Feed = () => {
     },
   };
 
-  const handleActionError = type => {
-    const action = type === 'like' ? 'いいね' : type === 'retweet' ? 'リツイート' : 'コメント';
-    alert(`${action}の投稿に失敗しました`);
-  };
-
   const onFetchTweets = async () => {
     try {
       const response = await getTweets();
@@ -28,16 +23,6 @@ export const Feed = () => {
     } catch (e) {
       console.error(e);
       alert('ツイートを読み込めませんでした');
-    }
-  };
-
-  const handleStatusIconClick = async (tweetId, type) => {
-    try {
-      const response = await tweetAction(tweetId, type);
-      setTweets(response.data);
-    } catch (e) {
-      console.error(e);
-      handleActionError(type);
     }
   };
 
@@ -56,7 +41,7 @@ export const Feed = () => {
     <NaviInPage headerOption={headerOption}>
       <Box css={content} id="feedContainer">
         {tweets.map((data, index) => (
-          <TweetItem item={data} key={index} onStatusIconClick={handleStatusIconClick} />
+          <TweetItem item={data} key={index} />
         ))}
         <AddTweetButton />
       </Box>

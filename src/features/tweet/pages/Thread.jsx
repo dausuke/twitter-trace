@@ -3,10 +3,11 @@ import {css} from '@emotion/react';
 import {useNavigate, useParams} from 'react-router-dom';
 import dayjs from 'dayjs';
 import {Colors} from '@/assets/styles';
-import {TweetItem, TweetImages, NaviInPage} from '@/components/parts';
-import {Box, Text, Input, Avator, Icon, Pressable} from '@/components/atoms';
-import {AuthDialog} from '@/components/auth/AuthDialog';
-import {fetchTweet, tweetAction} from '../api';
+import {TweetItem, TweetImages, NaviInPage} from '@/common/components/parts';
+import {Box, Text, Input, Avator, Icon, Pressable} from '@/common/components/atoms';
+import {AuthDialog} from '@/common/components/auth/AuthDialog';
+import {tweetAction} from '@/common/api';
+import {fetchTweet} from '../api';
 
 export const Thread = () => {
   const navigate = useNavigate();

@@ -2,15 +2,15 @@ import {useState} from 'react';
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
 import {useNavigate} from 'react-router-dom';
-import {Box, Text, Avator, Icon, Pressable} from '@/components/atoms';
-import {AuthDialog} from '@/components/auth/AuthDialog';
+import {Box, Text, Avator, Icon, Pressable} from '@/common/components/atoms';
+import {AuthDialog} from '@/common/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 import {checkLogin} from '@/utils/auth';
 import {TweetStatusIcon} from './TweetStatusIcon';
 import {TweetImages} from './TweetImages';
 
-export const TweetItem = ({item, onStatusIconClick}) => {
+export const TweetItem = ({item}) => {
   const navigate = useNavigate();
   const {user, body, created_at, images, ...statusData} = item;
   const [isShowDialog, setIsShowDialog] = useState(false);
@@ -40,6 +40,8 @@ export const TweetItem = ({item, onStatusIconClick}) => {
     setIsShowDialog(!isLogin);
   };
 
+  const eventCancel = e => e.stopPropagation();
+
   const onTweetClick = () => {
     navigate(`/tweet/${item.id}`);
   };
@@ -47,13 +49,6 @@ export const TweetItem = ({item, onStatusIconClick}) => {
   const handleCommentClick = e => {
     authGuard();
     navigate('/post/tweet', {state: {commentTo: item.id}});
-    e.stopPropagation();
-  };
-
-  const handleClickIcon = (e, type) => {
-    authGuard();
-    onStatusIconClick(item.id, type);
-    e.stopPropagation();
   };
 
   const onDialogBackgroundClick = () => {
@@ -100,24 +95,25 @@ export const TweetItem = ({item, onStatusIconClick}) => {
                 )}
               </Box>
             </Box>
-            <Box row css={iconWrap} justifyContent="space-between" alignItems="center">
+            <Box row css={iconWrap} justifyContent="space-between" alignItems="center" onClick={eventCancel}>
               <TweetStatusIcon
+                id={item.id}
                 icon="comment"
                 isActive={statusData.is_commented}
                 count={statusData.comment_count}
                 onClick={handleCommentClick}
               />
               <TweetStatusIcon
+                id={item.id}
                 icon="retweet"
                 isActive={statusData.is_retweeted}
                 count={statusData.retweet_count}
-                onClick={e => handleClickIcon(e, 'retweet')}
               />
               <TweetStatusIcon
+                id={item.id}
                 icon="like"
                 isActive={statusData.is_liked}
                 count={statusData.like_count}
-                onClick={e => handleClickIcon(e, 'like')}
               />
             </Box>
           </Box>

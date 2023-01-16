@@ -1,5 +1,5 @@
 import {TabPanel} from 'react-tabs';
-import {Box} from '@/components/atoms';
+import {Box} from '@/common/components/atoms';
 import {UserItem} from './UserItem';
 import Mock from '../mock';
 
