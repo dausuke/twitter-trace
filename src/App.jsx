@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Global styles={globalReset} />
-      <div className="App">
+      <div className="App" css={container}>
         <Router />
       </div>
     </>
@@ -25,5 +25,13 @@ const globalReset = css`
   a {
     color: #000000;
     text-decoration: none;
+  }
+`;
+
+const container = css`
+  position: relative;
+  @media (min-width: 600px) {
+    max-width: 800px;
+    margin: 0 auto;
   }
 `;

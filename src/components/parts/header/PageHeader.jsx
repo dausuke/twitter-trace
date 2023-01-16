@@ -49,7 +49,7 @@ const container = css`
   gap: 24px;
   width: 100%;
   height: ${HEIGHT}px;
-  position: fixed;
+  position: sticky;
   top: 0;
   background-color: ${Colors.KeyColor.Wihte};
   z-index: 999;

@@ -19,7 +19,7 @@ export const BottomNavi = ({content}) => {
 
 const container = css`
   width: 100%;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   background-color: ${Colors.KeyColor.Wihte};
   border-top: 1px solid ${Colors.Border.Primary};

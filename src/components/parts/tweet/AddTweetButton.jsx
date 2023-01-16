@@ -18,7 +18,7 @@ export const AddTweetButton = props => {
   return (
     <IconButton
       onClick={onButtonClick}
-      css={shadow}
+      css={button}
       size={58}
       color={Colors.KeyColor.Primary}
       icon={<Icon.PlusIcon size={24} color="#FFFFFF" />}
@@ -26,9 +26,13 @@ export const AddTweetButton = props => {
   );
 };
 
-const shadow = css`
+const button = css`
   position: fixed;
   right: 16px;
   bottom: 66px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.18);
+  z-index: 999;
+  @media (min-width: 420px) {
+    right: calc(50% - (800px / 2 - 16px));
+  }
 `;
