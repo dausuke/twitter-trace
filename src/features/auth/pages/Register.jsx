@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router-dom';
 import {isValidationError} from '@/utils/formRequest';
-import {Box, Text, Button} from '@/common/components/atoms';
+import {Box, Text, Button} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {AuhtInput} from '../components/AuthInput';
 import {emailReg, accountNameReg} from '../config';

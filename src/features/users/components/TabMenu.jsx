@@ -1,6 +1,6 @@
 import {Tab} from 'react-tabs';
 import {css} from '@emotion/react';
-import {Text} from '@/common/components/atoms';
+import {Text} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 
 const TabMenu = ({label, isActive, ...other}) => {

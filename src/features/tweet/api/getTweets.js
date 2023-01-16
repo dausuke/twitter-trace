@@ -1,3 +1,3 @@
 import api from '@/libs/axios';
 
-export const getTweets = () => api.get(`/tweet`);
+export const getTweets = params => api.get(`/tweet`, {params});

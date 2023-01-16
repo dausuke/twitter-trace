@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
-import {Text, Box, Icon} from '@/common/components/atoms';
-import {tweetAction} from '@/common/api';
+import {Text, Box, Icon} from '@/components/atoms';
+import {tweetAction} from '@/api';
 import {Colors} from '@/assets/styles';
 
 const calcIcon = ({icon, like, comment, retweet}) => {

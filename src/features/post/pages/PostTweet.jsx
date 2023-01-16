@@ -1,11 +1,11 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {Box, TextArea, HeaderButton, Avator} from '@/common/components/atoms';
-import {ModalPage} from '@/common/components/parts';
+import {Box, TextArea, HeaderButton, Avator} from '@/components/atoms';
+import {ModalPage} from '@/components/parts';
 import {Avator_A} from '@/features/mock/avators';
 import {Colors} from '@/assets/styles';
-import {Icon} from '@/common/components/atoms';
+import {Icon} from '@/components/atoms';
 import {ActionButton, ImagePreview} from '../components';
 import {createTweet} from '../api/createTweet';
 

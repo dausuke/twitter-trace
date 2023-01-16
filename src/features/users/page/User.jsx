@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import {useParams, useNavigate} from 'react-router';
-import {HeaderButton, Box, Icon, Button, Avator, Text, Pressable} from '@/common/components/atoms';
-import {AddTweetButton, TweetItem, NaviInPage} from '@/common/components/parts';
+import {HeaderButton, Box, Icon, Button, Avator, Text, Pressable} from '@/components/atoms';
+import {AddTweetButton, TweetItem, NaviInPage} from '@/components/parts';
 import {Colors} from '@/assets/styles';
 import Mock from '../mock';
 

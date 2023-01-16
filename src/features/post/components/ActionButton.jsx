@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Box, Text, Pressable} from '@/common/components/atoms';
+import {Box, Text, Pressable} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 
 export const ActionButton = ({icon, label, onClick, hitSlop}) => {

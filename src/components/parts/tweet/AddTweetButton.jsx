@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router-dom';
-import {IconButton, Icon} from '@/common/components/atoms';
+import {IconButton, Icon} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 
 export const AddTweetButton = props => {

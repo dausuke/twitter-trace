@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Box, Text, Avator, Button} from '@/common/components/atoms';
+import {Box, Text, Avator, Button} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 

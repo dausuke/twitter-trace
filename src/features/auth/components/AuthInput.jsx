@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Box, Text, Input} from '@/common/components/atoms';
+import {Box, Text, Input} from '@/components/atoms';
 
 export const AuhtInput = ({label, value, placeholder, type, onChange}) => (
   <Box row css={container} alignItems="center">

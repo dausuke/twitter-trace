@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {Box, Input, NaviIcon} from '@/common/components/atoms';
+import {Box, Input, NaviIcon} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 
 export const SearchInput = () => {
