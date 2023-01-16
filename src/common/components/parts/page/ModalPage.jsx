@@ -10,5 +10,5 @@ export const ModalPage = ({children, headerOption}) => (
 );
 
 const content = css`
-  padding: 56px 0 50px;
+  padding-bottom: 50px;
 `;
