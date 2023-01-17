@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState, useRef} from 'react';
+import {useCallback, useEffect, useLayoutEffect, useState, useRef} from 'react';
 
 const useInfinityScroll = fetch => {
   const ref = useRef(null);
@@ -19,7 +19,7 @@ const useInfinityScroll = fetch => {
     onFetch(currentPage);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!ref?.current) return;
 
     const observer = new IntersectionObserver(([entry]) => {
