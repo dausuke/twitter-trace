@@ -1,12 +1,10 @@
 import {css} from '@emotion/react';
 import {AddTweetButton, NaviInPage, HeaderAvator} from '@/components/parts';
-import {HeaderButton, Box, Icon} from '@/components/atoms';
+import {HeaderButton, Box, Text, Icon} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
-import mock from '../mock';
-import {NoticeItem} from '../components/NoticeItem';
 import {getUser} from '@/utils/auth';
 
-export const Notification = () => {
+export const Mail = () => {
   const user = getUser();
 
   const headerOption = {
@@ -16,7 +14,7 @@ export const Notification = () => {
         <Icon.SettingIcon color={Colors.Icon.Black} />
       </HeaderButton>
     ),
-    title: '通知',
+    title: 'メッセージ',
     titleStyle: {
       textAlign: 'center',
     },
@@ -25,9 +23,9 @@ export const Notification = () => {
   return (
     <NaviInPage headerOption={headerOption}>
       <Box css={content}>
-        {mock.map((data, index) => (
-          <NoticeItem item={data} key={index} />
-        ))}
+        <Text fontSize={24} fontWeight={700} textAlign="center">
+          mail page
+        </Text>
         <AddTweetButton />
       </Box>
     </NaviInPage>
@@ -37,4 +35,5 @@ export const Notification = () => {
 const content = css`
   min-height: 100vh;
   margin-top: 24px;
+  padding: 0 16px;
 `;
