@@ -1,19 +1,13 @@
-import {useState} from 'react';
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
-import {useNavigate} from 'react-router-dom';
 import {Box, Text, Avator, Icon, Pressable} from '@/components/atoms';
-import {AuthDialog} from '@/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
-import {checkLogin} from '@/utils/auth';
 import {TweetStatusIcon} from './TweetStatusIcon';
 import {TweetImages} from './TweetImages';
 
 export const TweetItem = ({item}) => {
-  const navigate = useNavigate();
   const {user, body, created_at, images, ...statusData} = item;
-  const [isShowDialog, setIsShowDialog] = useState(false);
 
   const calcCreatedDiff = createdAt => {
     const now = dayjs();
@@ -35,93 +29,88 @@ export const TweetItem = ({item}) => {
     return createdDate.format('YYYY/MM/DD');
   };
 
-  const authGuard = () => {
-    const isLogin = checkLogin();
-    setIsShowDialog(!isLogin);
-    return isLogin;
-  };
-
   const eventCancel = e => e.stopPropagation();
 
   const onTweetClick = () => {
-    navigate(`/tweet/${item.id}`);
+    console.log('tweet click');
   };
 
   const handleCommentClick = () => {
-    navigate('/post/tweet', {state: {commentTo: item.id}});
+    console.log('comment click');
   };
 
-  const onDialogBackgroundClick = () => {
-    setIsShowDialog(false);
+  const handleLikeClick = () => {
+    console.log('liek click');
+  };
+
+  const handleRetweetClick = () => {
+    console.log('retweet click');
   };
 
   return (
-    <>
-      <AuthDialog isShow={isShowDialog} onBackgroundClick={onDialogBackgroundClick} />
-      <Pressable onClick={onTweetClick}>
-        <Box row css={container}>
-          <Box>
-            <Avator image={user.avator} size={48} />
-          </Box>
-          <Box css={content}>
-            <Box css={textField}>
-              <Box row css={header} alignItems="center" justifyContent="space-between">
-                <Box row alignItems="center">
-                  <div css={userWrap}>
-                    <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
-                      {user.name}
-                    </Text>
-                    <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                      @{user.account_name}
-                    </Text>
-                  </div>
-                  <Box row css={time} alignItems="center">
-                    <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                      •
-                    </Text>
-                    <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                      {calcCreatedDiff(created_at)}
-                    </Text>
-                  </Box>
+    <Pressable onClick={onTweetClick}>
+      <Box row css={container}>
+        <Box>
+          <Avator image={user.avator} size={48} />
+        </Box>
+        <Box css={content}>
+          <Box css={textField}>
+            <Box row css={header} alignItems="center" justifyContent="space-between">
+              <Box row alignItems="center">
+                <div css={userWrap}>
+                  <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
+                    {user.name}
+                  </Text>
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    @{user.account_name}
+                  </Text>
+                </div>
+                <Box row css={time} alignItems="center">
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    •
+                  </Text>
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    {calcCreatedDiff(created_at)}
+                  </Text>
                 </Box>
-                <Icon.MenuIcon />
               </Box>
-              <Box css={tweetBody}>
-                <Text>{body}</Text>
-                {!!images.length && (
-                  <Box css={imageWrap}>
-                    <TweetImages images={images} />
-                  </Box>
-                )}
-              </Box>
+              <Icon.MenuIcon />
             </Box>
-            <Box row css={iconWrap} justifyContent="space-between" alignItems="center" onClick={eventCancel}>
-              <TweetStatusIcon
-                id={item.id}
-                icon="comment"
-                isActive={statusData.is_commented}
-                count={statusData.comment_count}
-                onClick={handleCommentClick}
-              />
-              <TweetStatusIcon
-                id={item.id}
-                icon="retweet"
-                isActive={statusData.is_retweeted}
-                count={statusData.retweet_count}
-                onClick={authGuard}
-              />
-              <TweetStatusIcon
-                id={item.id}
-                icon="like"
-                isActive={statusData.is_liked}
-                count={statusData.like_count}
-                onClick={authGuard}
-              />
+            <Box css={tweetBody}>
+              <Text>{body}</Text>
+              {!!images.length && (
+                <Box css={imageWrap}>
+                  <TweetImages images={images} />
+                </Box>
+              )}
             </Box>
+          </Box>
+          <Box row css={iconWrap} justifyContent="space-between" alignItems="center" onClick={eventCancel}>
+            <TweetStatusIcon
+              id={item.id}
+              icon="comment"
+              isActive={statusData.is_commented}
+              count={statusData.comment_count}
+              onClick={handleCommentClick}
+            />
+            <TweetStatusIcon
+              id={item.id}
+              icon="retweet"
+              isActive={statusData.is_retweeted}
+              count={statusData.retweet_count}
+              onClick={handleRetweetClick}
+            />
+            <TweetStatusIcon
+              id={item.id}
+              icon="like"
+              isActive={statusData.is_liked}
+              count={statusData.like_count}
+              onClick={handleLikeClick}
+            />
           </Box>
         </Box>
-      </Pressable>
-    </>
+      </Box>
+    </Pressable>
   );
 };
 
