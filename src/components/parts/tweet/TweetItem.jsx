@@ -38,6 +38,7 @@ export const TweetItem = ({item}) => {
   const authGuard = () => {
     const isLogin = checkLogin();
     setIsShowDialog(!isLogin);
+    return isLogin;
   };
 
   const eventCancel = e => e.stopPropagation();
@@ -46,8 +47,7 @@ export const TweetItem = ({item}) => {
     navigate(`/tweet/${item.id}`);
   };
 
-  const handleCommentClick = e => {
-    authGuard();
+  const handleCommentClick = () => {
     navigate('/post/tweet', {state: {commentTo: item.id}});
   };
 
@@ -108,12 +108,14 @@ export const TweetItem = ({item}) => {
                 icon="retweet"
                 isActive={statusData.is_retweeted}
                 count={statusData.retweet_count}
+                onClick={authGuard}
               />
               <TweetStatusIcon
                 id={item.id}
                 icon="like"
                 isActive={statusData.is_liked}
                 count={statusData.like_count}
+                onClick={authGuard}
               />
             </Box>
           </Box>

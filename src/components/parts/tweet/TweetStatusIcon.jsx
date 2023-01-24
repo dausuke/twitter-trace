@@ -37,10 +37,8 @@ export const TweetStatusIcon = ({id, icon, isActive: _isActive, count: _count, o
 
   const handleStatusIconClick = async e => {
     try {
-      if (onClick) {
-        onClick();
-        return;
-      }
+      const result = onClick();
+      if (result === false) return;
 
       await tweetAction(id, icon);
 

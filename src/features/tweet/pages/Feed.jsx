@@ -2,12 +2,13 @@ import {useState} from 'react';
 import {css} from '@emotion/react';
 import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
 import {Box} from '@/components/atoms';
-import Mock from '@/features/users/mock';
 import useInfinityScroll from '@/hooks/useInfinityScroll';
+import {getUser} from '@/utils/auth';
 import {getTweets} from '../api';
 
 export const Feed = () => {
   const limit = 20;
+  const user = getUser();
   const [tweets, setTweets] = useState([]);
   const [scrollRef, _, setPaged, isLoading, setIsLoading] = useInfinityScroll(async currentPage => {
     try {
@@ -34,7 +35,7 @@ export const Feed = () => {
   });
 
   const headerOption = {
-    headerLeft: <HeaderAvator user={Mock.me} />,
+    headerLeft: <HeaderAvator user={user} />,
     title: 'ホーム',
     titleStyle: {
       textAlign: 'center',

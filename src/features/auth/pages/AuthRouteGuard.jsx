@@ -1,8 +1,9 @@
 import {Outlet} from 'react-router-dom';
 import {AuthDialog} from '@/components/auth/AuthDialog';
+import {checkLogin} from '@/utils/auth';
 
 export const AuthRouteGuard = () => {
-  const token = localStorage.getItem('token');
+  const isLogin = checkLogin();
 
-  return <>{!token ? <AuthDialog isShow /> : <Outlet />}</>;
+  return <>{!isLogin ? <AuthDialog isShow /> : <Outlet />}</>;
 };

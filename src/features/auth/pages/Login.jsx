@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {css} from '@emotion/react';
 import {useNavigate} from 'react-router-dom';
 import {isValidationError} from '@/utils/formRequest';
+import {setUser} from '@/utils/auth';
 import {Box, Text, Button} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {AuhtInput} from '../components/AuthInput';
@@ -59,7 +60,7 @@ export const Login = () => {
         return;
       }
 
-      localStorage.setItem('token', response.data.token);
+      setUser(response.data);
       navigate('/');
     } catch (e) {
       console.error(e);
@@ -110,6 +111,7 @@ export const Login = () => {
 
 const container = css`
   flex: 1;
+  height: 100vh;
   padding: 32px 24px;
   gap: 80px;
 `;

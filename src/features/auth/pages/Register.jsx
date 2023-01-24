@@ -123,6 +123,7 @@ export const Register = () => {
 
 const container = css`
   flex: 1;
+  height: 100vh;
   padding: 32px 24px;
   gap: 80px;
 `;

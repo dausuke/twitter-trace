@@ -3,13 +3,14 @@ import {css} from '@emotion/react';
 import {useNavigate, useLocation} from 'react-router-dom';
 import {Box, TextArea, HeaderButton, Avator} from '@/components/atoms';
 import {ModalPage} from '@/components/parts';
-import {Avator_A} from '@/features/mock/avators';
 import {Colors} from '@/assets/styles';
 import {Icon} from '@/components/atoms';
 import {ActionButton, ImagePreview} from '../components';
 import {createTweet} from '../api/createTweet';
+import {getUser} from '@/utils/auth';
 
 export const PostTweet = () => {
+  const user = getUser();
   const navigate = useNavigate();
   const {state} = useLocation();
   const [isLoading, setIsLoading] = useState(false);
@@ -88,7 +89,7 @@ export const PostTweet = () => {
       <Box css={container}>
         <Box row css={gap}>
           <Box css={avatorWrap}>
-            <Avator size={40} image={Avator_A} />
+            <Avator size={40} image={user.avator} />
           </Box>
           <Box css={inputwWrap}>
             <TextArea
