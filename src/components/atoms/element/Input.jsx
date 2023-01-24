@@ -1,9 +1,7 @@
 import {css} from '@emotion/react';
 import {Colors} from '@/assets/styles';
 
-export const Input = ({style, ...props}) => <input css={[input, {...style}]} {...props} />;
-
-export default Input;
+export const Input = props => <input css={input} {...props} />;
 
 const input = css`
   padding: 6px 18px;

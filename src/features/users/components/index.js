@@ -1,1 +1,2 @@
-export {Avator} from './Avator';
+export {TabContent} from './TabContent';
+export {TabMenu} from './TabMenu';

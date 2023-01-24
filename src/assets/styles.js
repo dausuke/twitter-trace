@@ -10,7 +10,7 @@ export const Colors = {
     Outline: '#FFFFFF',
   },
   Background: {
-    Primary: '#FFFFFF',
+    Primary: '#FDFDFD',
     Seconday: '#EFF3F4',
   },
   Border: {
@@ -24,8 +24,15 @@ export const Colors = {
     Like: '#FC506F',
     Comment: '#1D9BF0',
     Retweet: '#23BD09',
+    Black: '#0F1419',
+  },
+  Status: {
+    Success: '#73CB77',
+    Warning: '#FFB800',
+    Error: '#FF0000',
   },
   KeyColor: {
     Primary: '#1D9BF0',
+    Wihte: '#FFFFFF',
   },
 };

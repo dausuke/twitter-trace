@@ -1,0 +1,43 @@
+import {useCallback, useEffect, useState, useRef} from 'react';
+
+const useInfinityScroll = fetch => {
+  const ref = useRef(null);
+
+  const [paged, setPaged] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [intersecting, setIntersecting] = useState(false);
+
+  const onFetch = useCallback(fetch, [fetch]);
+
+  const onEndReached = () => {
+    if (!paged) return;
+
+    const currentPage = paged + 1;
+
+    setPaged(currentPage);
+    onFetch(currentPage);
+  };
+
+  useEffect(() => {
+    if (!ref?.current) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setIntersecting(entry.isIntersecting);
+    });
+
+    observer.observe(ref.current);
+
+    return () => {
+      observer.unobserve(ref.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    intersecting && onEndReached();
+  }, [intersecting]);
+
+  return [ref, paged, setPaged, isLoading, setIsLoading];
+};
+
+export default useInfinityScroll;

@@ -1,16 +1,16 @@
 import {css} from '@emotion/react';
-import {ButtonBase} from '../base/ButtonBase';
-import {Box} from '.';
+import {Pressable} from './Pressable';
+import Box from './Box';
 
 export const IconButton = ({icon, size, color, onClick, ...props}) => (
   <Box
-    justify="center"
-    align="center"
+    justifyContent="center"
+    alignItems="center"
     css={[container, {width: size, height: size, backgroundColor: color}]}
     {...props}>
-    <ButtonBase css={button} onClick={onClick}>
+    <Pressable css={button} onClick={onClick}>
       {icon}
-    </ButtonBase>
+    </Pressable>
   </Box>
 );
 

@@ -20,9 +20,10 @@
     "react/prop-types": "off",
     "react/no-unknown-property": ["error", {"ignore": ["css"]}],
     "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "error",
     "no-extra-boolean-cast": "off",
-    "no-unused-vars": ["warn", {"args": "none"}],
+    "no-unused-vars": ["warn", {"varsIgnorePattern": "_"}],
     "prettier/prettier": [
       "error",
       {
