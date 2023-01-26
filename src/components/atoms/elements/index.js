@@ -1,6 +1,5 @@
 export {Button} from './Button';
 export {IconButton} from './IconButton';
-export {HeaderButton} from './HeaderButton';
 export {Input} from './Input';
 export {TextArea} from './TextArea';
 export {Pressable} from './Pressable';

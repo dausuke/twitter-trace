@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
-import {Pressable} from './Pressable';
-import Box from './Box';
-import {Text} from './Text';
+import {Pressable} from '../../atoms/elements/Pressable';
+import Box from '../../atoms/elements/Box';
+import {Text} from '../../atoms/elements/Text';
 import {Colors} from '@/assets/styles';
 
 export const HeaderButton = ({children, isButton, color, ...props}) => {
