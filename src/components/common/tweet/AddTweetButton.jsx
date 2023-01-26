@@ -29,7 +29,7 @@ export const AddTweetButton = props => {
 const button = css`
   position: fixed;
   right: 16px;
-  bottom: 66px;
+  bottom: 40px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.18);
   z-index: 999;
   @media (min-width: 420px) {

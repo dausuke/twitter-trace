@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
-import {AddTweetButton, TweetItem, NaviInPage, HeaderAvator} from '@/components/parts';
+import {AddTweetButton, TweetItem, HeaderAvator} from '@/components/common';
+import {AppPage} from '@/components/layout/AppPage';
 import {Box} from '@/components/atoms';
 import useInfinityScroll from '@/hooks/useInfinityScroll';
 import {getUser} from '@/utils/auth';
@@ -43,7 +44,7 @@ export const Feed = () => {
   };
 
   return (
-    <NaviInPage headerOption={headerOption}>
+    <AppPage headerOption={headerOption}>
       <Box css={content}>
         {tweets.map((data, index) => (
           <TweetItem item={data} key={index} />
@@ -51,7 +52,7 @@ export const Feed = () => {
         <div ref={scrollRef} />
         <AddTweetButton />
       </Box>
-    </NaviInPage>
+    </AppPage>
   );
 };
 

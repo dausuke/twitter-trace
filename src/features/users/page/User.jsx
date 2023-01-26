@@ -1,15 +1,16 @@
 import {css} from '@emotion/react';
 import {useParams, useNavigate} from 'react-router';
 import {HeaderButton, Box, Icon, Button, Avator, Text, Pressable} from '@/components/atoms';
-import {AddTweetButton, TweetItem, NaviInPage} from '@/components/parts';
+import {AddTweetButton, TweetItem} from '@/components/common';
+import {AppPage} from '@/components/layout/AppPage';
 import {Colors} from '@/assets/styles';
-import Mock from '../mock';
+import {getUser} from '@/utils/auth';
 
 export const User = () => {
-  const {me} = Mock;
+  const user = getUser();
   const navigate = useNavigate();
   const {accountName} = useParams();
-  const isMe = me.account_name === accountName;
+  const isMe = user.account_name === accountName;
 
   const headerOption = {
     headerLeft: (
@@ -17,12 +18,12 @@ export const User = () => {
         <Icon.BackIcon color={Colors.Icon.Black} />
       </HeaderButton>
     ),
-    title: me.user_name,
-    text: `ツイート${me.tweets.length}`,
+    title: user.name,
+    text: `ツイート${user.tweets.length}`,
   };
 
   const backgroundImage = css`
-    background-image: url(${me.profile_background});
+    background-image: url(${user.profile_background});
   `;
 
   const onFollowClick = number => {
@@ -30,29 +31,29 @@ export const User = () => {
   };
 
   return (
-    <NaviInPage headerOption={headerOption}>
+    <AppPage headerOption={headerOption}>
       <Box>
         <Box css={header}>
           <Box css={backgroundImage} justifyContent="center" alignItems="center">
-            <img css={{width: '100%', height: '130px'}} src={me.profile_background} alt="" />
+            <img css={{width: '100%', height: '130px'}} src={user.profile_background} alt="" />
           </Box>
           <Box row css={headerContent} justifyContent="space-between" alignItems="center">
-            <Avator image={me.avator} />
+            <Avator image={user.avator} />
             <Button outline>{isMe ? '編集' : 'フォロー'}</Button>
           </Box>
         </Box>
         <Box css={userInfo}>
           <Box css={nameWrap}>
             <Text fontSize={16} fontWeight={700}>
-              {me.user_name}
+              {user.user_name}
             </Text>
-            <Text color={Colors.Text.Seconday}>{me.account_name}</Text>
+            <Text color={Colors.Text.Seconday}>{user.account_name}</Text>
           </Box>
           <Box row css={followInfo}>
             <Pressable onClick={() => onFollowClick(0)} hitSlop={4}>
               <Box row css={followWrap} alignItems="center">
                 <Text fontSize={14} fontWeight={700}>
-                  {me.follow_count}
+                  {user.follow_count}
                 </Text>
                 <Text fontSize={12} color={Colors.Text.Seconday}>
                   フォロー
@@ -62,7 +63,7 @@ export const User = () => {
             <Pressable onClick={() => onFollowClick(1)} hitSlop={4}>
               <Box row css={followWrap} alignItems="center">
                 <Text fontSize={14} fontWeight={700}>
-                  {me.follwer_count}
+                  {user.follwer_count}
                 </Text>
                 <Text fontSize={12} color={Colors.Text.Seconday}>
                   フォロワー
@@ -72,13 +73,13 @@ export const User = () => {
           </Box>
         </Box>
         <Box>
-          {me.tweets.map((tweet, index) => (
+          {user.tweets.map((tweet, index) => (
             <TweetItem key={index} item={tweet} />
           ))}
         </Box>
       </Box>
       <AddTweetButton />
-    </NaviInPage>
+    </AppPage>
   );
 };
 

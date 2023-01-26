@@ -5,7 +5,7 @@ export const HeaderAvator = ({user}) => {
   const navigate = useNavigate();
 
   const onButtonClick = () => {
-    navigate(`/user/${user.account_name}`);
+    !!user && navigate(`/user/${user.account_name}`);
   };
 
   return (

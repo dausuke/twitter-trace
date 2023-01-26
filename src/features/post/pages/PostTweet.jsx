@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {css} from '@emotion/react';
 import {useNavigate, useLocation} from 'react-router-dom';
 import {Box, TextArea, HeaderButton, Avator} from '@/components/atoms';
-import {ModalPage} from '@/components/parts';
+import {AppPage} from '@/components/layout/AppPage';
 import {Colors} from '@/assets/styles';
 import {Icon} from '@/components/atoms';
 import {ActionButton, ImagePreview} from '../components';
@@ -85,7 +85,7 @@ export const PostTweet = () => {
   };
 
   return (
-    <ModalPage headerOption={headerOption}>
+    <AppPage headerOption={headerOption}>
       <Box css={container}>
         <Box row css={gap}>
           <Box css={avatorWrap}>
@@ -119,7 +119,7 @@ export const PostTweet = () => {
           />
         </Box>
       </Box>
-    </ModalPage>
+    </AppPage>
   );
 };
 

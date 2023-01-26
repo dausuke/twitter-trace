@@ -3,7 +3,8 @@ import {css} from '@emotion/react';
 import {useNavigate, useParams} from 'react-router-dom';
 import dayjs from 'dayjs';
 import {Colors} from '@/assets/styles';
-import {TweetItem, TweetImages, NaviInPage} from '@/components/parts';
+import {TweetItem, TweetImages} from '@/components/common';
+import {AppPage} from '@/components/layout/AppPage';
 import {Box, Text, Input, Avator, Icon, Pressable} from '@/components/atoms';
 import {AuthDialog} from '@/components/auth/AuthDialog';
 import {tweetAction} from '@/api';
@@ -67,7 +68,7 @@ export const Thread = () => {
 
   return (
     <>
-      <NaviInPage headerOption={headerOption}>
+      <AppPage headerOption={headerOption}>
         <AuthDialog isShow={isShowDialog} onBackgroundClick={handleDialogBackgroundClick} />
 
         <Box css={tweetContainer}>
@@ -159,7 +160,7 @@ export const Thread = () => {
             <Input css={input} placeholder="返信をツイート" />
           </Pressable>
         </Box>
-      </NaviInPage>
+      </AppPage>
     </>
   );
 };
@@ -243,5 +244,5 @@ const commentContainer = css`
 const fixedForm = css`
   width: 100%;
   position: fixed;
-  bottom: 56px;
+  bottom: 40px;
 `;

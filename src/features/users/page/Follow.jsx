@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 import {Tabs, TabList} from 'react-tabs';
 import {useNavigate, useLocation} from 'react-router-dom';
 import {HeaderButton, Box, Icon} from '@/components/atoms';
-import {NaviInPage} from '@/components/parts';
+import {AppPage} from '@/components/layout/AppPage';
 import {TabContent, TabMenu} from '../components';
 import {Colors} from '@/assets/styles';
 import Mock from '../mock';
@@ -37,7 +37,7 @@ export const Follow = () => {
   };
 
   return (
-    <NaviInPage headerOption={headerOption}>
+    <AppPage headerOption={headerOption}>
       <Box css={container}>
         <Tabs selectedIndex={tabIndex} onSelect={onSelectTab}>
           <TabList css={tabList}>
@@ -52,7 +52,7 @@ export const Follow = () => {
           </Box>
         </Tabs>
       </Box>
-    </NaviInPage>
+    </AppPage>
   );
 };
 
