@@ -34,8 +34,13 @@ const useInfinityScroll = fetch => {
   }, []);
 
   useEffect(() => {
-    intersecting && onEndReached();
+    if (intersecting && paged !== 1) onEndReached();
   }, [intersecting]);
+
+  useEffect(() => {
+    onFetch(paged);
+    setPaged(paged + 1);
+  }, []);
 
   return [ref, paged, setPaged, isLoading, setIsLoading];
 };

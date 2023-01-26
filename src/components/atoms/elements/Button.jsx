@@ -15,7 +15,7 @@ export const Button = ({fontSize = 12, px = 40, py = 10, outline, color = 'prima
     <Pressable
       css={[container, {padding: ` ${py}px ${px}px`}, buttonStyle, props.disabled && disabledOpacity]}
       {...props}>
-      <Box justifyContent="center" alignItems="center" css={[container, buttonStyle]}>
+      <Box justifyContent="center" alignItems="center">
         <Text
           css={baseText}
           color={!outline ? Colors.Text.White : Colors.Text.Primary}
