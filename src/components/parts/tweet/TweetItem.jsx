@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
 import {useNavigate} from 'react-router-dom';
+import {tweetAction} from '@/api';
 import {Box, Text, Avator, Icon, Pressable} from '@/components/atoms';
 import {AuthDialog} from '@/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
@@ -47,8 +48,13 @@ export const TweetItem = ({item}) => {
     navigate(`/tweet/${item.id}`);
   };
 
-  const handleCommentClick = () => {
-    navigate('/post/tweet', {state: {commentTo: item.id}});
+  const handleIconClick = async icon => {
+    const result = authGuard();
+    if (result === false) return;
+
+    icon === 'comment'
+      ? navigate('/post/tweet', {state: {commentTo: item.id}})
+      : await tweetAction(item.id, icon);
   };
 
   const onDialogBackgroundClick = () => {
@@ -97,25 +103,22 @@ export const TweetItem = ({item}) => {
             </Box>
             <Box row css={iconWrap} justifyContent="space-between" alignItems="center" onClick={eventCancel}>
               <TweetStatusIcon
-                id={item.id}
                 icon="comment"
                 isActive={statusData.is_commented}
                 count={statusData.comment_count}
-                onClick={handleCommentClick}
+                onClick={handleIconClick}
               />
               <TweetStatusIcon
-                id={item.id}
                 icon="retweet"
                 isActive={statusData.is_retweeted}
                 count={statusData.retweet_count}
-                onClick={authGuard}
+                onClick={handleIconClick}
               />
               <TweetStatusIcon
-                id={item.id}
                 icon="like"
                 isActive={statusData.is_liked}
                 count={statusData.like_count}
-                onClick={authGuard}
+                onClick={handleIconClick}
               />
             </Box>
           </Box>

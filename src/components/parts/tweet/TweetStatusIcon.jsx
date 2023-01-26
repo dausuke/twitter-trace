@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
 import {Text, Box, Icon} from '@/components/atoms';
-import {tweetAction} from '@/api';
 import {Colors} from '@/assets/styles';
 
 const activeColor = {
@@ -10,7 +9,7 @@ const activeColor = {
   retweet: Colors.Icon.Retweet,
 };
 
-export const TweetStatusIcon = ({id, icon, isActive: _isActive, count: _count, onClick}) => {
+export const TweetStatusIcon = ({icon, isActive: _isActive, count: _count, onClick}) => {
   const [isActive, setIsActive] = useState(_isActive);
   const [count, setCount] = useState(_count);
 
@@ -28,10 +27,7 @@ export const TweetStatusIcon = ({id, icon, isActive: _isActive, count: _count, o
 
   const handleStatusIconClick = async e => {
     try {
-      const result = onClick();
-      if (result === false) return;
-
-      await tweetAction(id, icon);
+      onClick(icon);
 
       setCount(isActive ? count - 1 : count + 1);
       setIsActive(!isActive);
