@@ -90,7 +90,6 @@ export const Thread = () => {
               </Text>
             </Box>
           </Box>
-          <Icon.MenuIcon />
         </Box>
         <Box css={tweetContent}>
           <Box css={textField}>
