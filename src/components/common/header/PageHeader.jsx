@@ -1,8 +1,7 @@
 import {css} from '@emotion/react';
 import {Box, Text} from '../../atoms';
 import {Colors} from '@/assets/styles';
-
-const HEIGHT = 56;
+import {HEADER_HEIGHT} from '@/config';
 
 export const PageHeader = ({
   headerLeft,
@@ -48,7 +47,7 @@ const container = css`
   padding: 10px 16px 16px;
   gap: 24px;
   width: 100%;
-  height: ${HEIGHT}px;
+  height: ${HEADER_HEIGHT}px;
   position: sticky;
   top: 0;
   background-color: ${Colors.KeyColor.Wihte};

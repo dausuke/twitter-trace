@@ -74,15 +74,13 @@ export const Thread = () => {
         <Box css={tweetContainer}>
           <Box row css={header} alignItems="center">
             <Avator image={tweet?.user.avator} size={48} />
-            <Box row alignItems="center">
-              <Box css={userWrap}>
-                <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
-                  {tweet?.user.name}
-                </Text>
-                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                  @{tweet?.user.account_name}
-                </Text>
-              </Box>
+            <Box css={userWrap}>
+              <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
+                {tweet?.user.name}
+              </Text>
+              <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                @{tweet?.user.account_name}
+              </Text>
             </Box>
           </Box>
           <Box css={tweetContent}>
