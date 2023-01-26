@@ -2,7 +2,7 @@
 import {forwardRef} from 'react';
 import {css} from '@emotion/react';
 
-export const BoxWrap = forwardRef(function Box(props, ref) {
+const BoxWrap = forwardRef(function Box(props, ref) {
   const {
     row,
     wrap,
