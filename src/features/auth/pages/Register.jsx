@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {isValidationError} from '@/utils/formRequest';
 import {Box, Text, Button} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
+import {setUser} from '@/utils/auth';
 import {AuhtInput} from '../components/AuthInput';
 import {emailReg, accountNameReg} from '../config';
 import {createUser} from '../api';
@@ -72,7 +73,7 @@ export const Register = () => {
       }
 
       const response = await createUser(state);
-      localStorage.setItem('token', response.data.token);
+      setUser(response.data);
       navigate('/');
     } catch (e) {
       console.error(e);

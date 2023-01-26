@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 import dayjs from 'dayjs';
 import {useNavigate} from 'react-router-dom';
 import {tweetAction} from '@/api';
-import {Box, Text, Avator, Icon, Pressable} from '@/components/atoms';
+import {Box, Text, Avator, Pressable} from '@/components/atoms';
 import {AuthDialog} from '@/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
@@ -90,7 +90,6 @@ export const TweetItem = ({item}) => {
                     </Text>
                   </Box>
                 </Box>
-                <Icon.MenuIcon />
               </Box>
               <Box css={tweetBody}>
                 <Text>{body}</Text>
