@@ -4,10 +4,9 @@ import {NaviItem} from './NaviItem';
 import {ROUTE_OBJECT} from '@/config';
 import {Colors} from '@/assets/styles';
 
-export const BottomNavi = ({content}) => {
+export const BottomNavi = () => {
   return (
     <Box css={container}>
-      {content}
       <Box row css={navi} justifyContent="space-between">
         {ROUTE_OBJECT.map((route, index) => (
           <NaviItem {...route} key={index} />
