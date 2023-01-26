@@ -10,7 +10,7 @@ export const HeaderAvator = ({user}) => {
 
   return (
     <HeaderButton onClick={onButtonClick} hitslop={4}>
-      <Avator image={user.avator} size={30} />
+      <Avator image={user?.avator} size={30} />
     </HeaderButton>
   );
 };

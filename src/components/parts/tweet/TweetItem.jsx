@@ -34,16 +34,8 @@ export const TweetItem = ({item}) => {
     console.log('tweet click');
   };
 
-  const handleCommentClick = () => {
-    console.log('comment click');
-  };
-
-  const handleLikeClick = () => {
-    console.log('liek click');
-  };
-
-  const handleRetweetClick = () => {
-    console.log('retweet click');
+  const handleIconClick = icon => {
+    console.log(`${icon} click`);
   };
 
   return (
@@ -57,25 +49,23 @@ export const TweetItem = ({item}) => {
 
           <Box row css={iconWrap} justifyContent="space-between" alignItems="center" onClick={eventCancel}>
             <TweetStatusIcon
-              id={item.id}
               icon="comment"
               isActive={statusData.is_commented}
               count={statusData.comment_count}
-              onClick={handleCommentClick}
+              onClick={handleIconClick}
             />
             <TweetStatusIcon
               id={item.id}
               icon="retweet"
               isActive={statusData.is_retweeted}
               count={statusData.retweet_count}
-              onClick={handleRetweetClick}
+              onClick={handleIconClick}
             />
             <TweetStatusIcon
-              id={item.id}
               icon="like"
               isActive={statusData.is_liked}
               count={statusData.like_count}
-              onClick={handleLikeClick}
+              onClick={handleIconClick}
             />
           </Box>
         </Box>
