@@ -12,5 +12,6 @@ export const NaviInPage = ({children, headerOption, bottomOption}) => (
 );
 
 const content = css`
+  flex: 1;
   padding-bottom: 50px;
 `;

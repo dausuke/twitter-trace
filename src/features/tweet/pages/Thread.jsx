@@ -65,103 +65,102 @@ export const Thread = () => {
     },
   };
 
-  const bottomOption = {
-    content: (
-      <Pressable onClick={handleCommentClick}>
-        <Input css={input} placeholder="返信をツイート" />
-      </Pressable>
-    ),
-  };
-
   return (
-    <NaviInPage headerOption={headerOption} bottomOption={bottomOption}>
-      <AuthDialog isShow={isShowDialog} onBackgroundClick={handleDialogBackgroundClick} />
+    <>
+      <NaviInPage headerOption={headerOption}>
+        <AuthDialog isShow={isShowDialog} onBackgroundClick={handleDialogBackgroundClick} />
 
-      <Box css={tweetContainer}>
-        <Box row css={header} alignItems="center">
-          <Avator image={tweet?.user.avator} size={48} />
-          <Box row alignItems="center">
-            <Box css={userWrap}>
-              <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
-                {tweet?.user.name}
-              </Text>
-              <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                @{tweet?.user.account_name}
-              </Text>
+        <Box css={tweetContainer}>
+          <Box row css={header} alignItems="center">
+            <Avator image={tweet?.user.avator} size={48} />
+            <Box row alignItems="center">
+              <Box css={userWrap}>
+                <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
+                  {tweet?.user.name}
+                </Text>
+                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                  @{tweet?.user.account_name}
+                </Text>
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <Box css={tweetContent}>
-          <Box css={textField}>
-            <Box css={tweetBody}>
-              <Text>{tweet?.body}</Text>
-              {!!tweet?.images.length && (
-                <Box css={imageWrap}>
-                  <TweetImages imageHeight={240} images={tweet?.images} />
+          <Box css={tweetContent}>
+            <Box css={textField}>
+              <Box css={tweetBody}>
+                <Text>{tweet?.body}</Text>
+                {!!tweet?.images.length && (
+                  <Box css={imageWrap}>
+                    <TweetImages imageHeight={240} images={tweet?.images} />
+                  </Box>
+                )}
+              </Box>
+              <Box row css={time} alignItems="center">
+                <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                  {dayjs(tweet?.created_at).format('YYYY/MM/DD HH:mm:ss')}
+                </Text>
+              </Box>
+            </Box>
+            <Box>
+              <Box row css={statusWrap}>
+                <Box row>
+                  <Text fontSize={12} fontWeight={700}>
+                    {tweet?.retweet_count}
+                  </Text>
+                  <Text fontSize={12} color={Colors.Text.Seconday}>
+                    件のリツイート
+                  </Text>
                 </Box>
-              )}
-            </Box>
-            <Box row css={time} alignItems="center">
-              <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
-                {dayjs(tweet?.created_at).format('YYYY/MM/DD HH:mm:ss')}
-              </Text>
-            </Box>
-          </Box>
-          <Box>
-            <Box row css={statusWrap}>
-              <Box row>
-                <Text fontSize={12} fontWeight={700}>
-                  {tweet?.retweet_count}
-                </Text>
-                <Text fontSize={12} color={Colors.Text.Seconday}>
-                  件のリツイート
-                </Text>
+                <Box row>
+                  <Text fontSize={12} fontWeight={700}>
+                    {tweet?.comment_count}
+                  </Text>
+                  <Text fontSize={12} color={Colors.Text.Seconday}>
+                    件のコメント
+                  </Text>
+                </Box>
               </Box>
-              <Box row>
-                <Text fontSize={12} fontWeight={700}>
-                  {tweet?.comment_count}
-                </Text>
-                <Text fontSize={12} color={Colors.Text.Seconday}>
-                  件のコメント
-                </Text>
+              <Box row css={statusWrap}>
+                <Box row>
+                  <Text fontSize={12} fontWeight={700}>
+                    {tweet?.like_count}
+                  </Text>
+                  <Text fontSize={12} color={Colors.Text.Seconday}>
+                    件のいいね
+                  </Text>
+                </Box>
               </Box>
             </Box>
-            <Box row css={statusWrap}>
-              <Box row>
-                <Text fontSize={12} fontWeight={700}>
-                  {tweet?.like_count}
-                </Text>
-                <Text fontSize={12} color={Colors.Text.Seconday}>
-                  件のいいね
-                </Text>
+            <Box row css={iconWrap} justifyContent="space-between" alignItems="center">
+              <Box css={icon} alignItems="flex-start">
+                <Pressable hitSlop={8} onClick={handleCommentClick}>
+                  <Icon.CommentIcon color={tweet?.is_commented ? Colors.Icon.Comment : Colors.Icon.Primary} />
+                </Pressable>
               </Box>
-            </Box>
-          </Box>
-          <Box row css={iconWrap} justifyContent="space-between" alignItems="center">
-            <Box css={icon} alignItems="flex-start">
-              <Pressable hitSlop={8} onClick={handleCommentClick}>
-                <Icon.CommentIcon color={tweet?.is_commented ? Colors.Icon.Comment : Colors.Icon.Primary} />
-              </Pressable>
-            </Box>
-            <Box css={icon} alignItems="flex-start">
-              <Pressable hitSlop={8} onClick={() => handleStatusIconClick(tweet?.id, 'retweet')}>
-                <Icon.RetweetIcon color={tweet?.is_retweeted ? Colors.Icon.Retweet : Colors.Icon.Primary} />
-              </Pressable>
-            </Box>
-            <Box css={icon} alignItems="flex-start">
-              <Pressable hitSlop={8} onClick={() => handleStatusIconClick(tweet?.id, 'like')}>
-                <Icon.LikeIcon color={tweet?.is_liked ? Colors.Icon.Like : Colors.Icon.Primary} />
-              </Pressable>
+              <Box css={icon} alignItems="flex-start">
+                <Pressable hitSlop={8} onClick={() => handleStatusIconClick(tweet?.id, 'retweet')}>
+                  <Icon.RetweetIcon color={tweet?.is_retweeted ? Colors.Icon.Retweet : Colors.Icon.Primary} />
+                </Pressable>
+              </Box>
+              <Box css={icon} alignItems="flex-start">
+                <Pressable hitSlop={8} onClick={() => handleStatusIconClick(tweet?.id, 'like')}>
+                  <Icon.LikeIcon color={tweet?.is_liked ? Colors.Icon.Like : Colors.Icon.Primary} />
+                </Pressable>
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
-      <Box css={commentContainer}>
-        {tweet?.comments?.map((data, index) => (
-          <TweetItem item={data} key={index} onStatusIconClick={handleStatusIconClick} />
-        ))}
-      </Box>
-    </NaviInPage>
+        <Box css={commentContainer}>
+          {tweet?.comments?.map((data, index) => (
+            <TweetItem item={data} key={index} onStatusIconClick={handleStatusIconClick} />
+          ))}
+        </Box>
+        <Box css={fixedForm}>
+          <Pressable onClick={handleCommentClick}>
+            <Input css={input} placeholder="返信をツイート" />
+          </Pressable>
+        </Box>
+      </NaviInPage>
+    </>
   );
 };
 
@@ -239,4 +238,10 @@ const input = css`
 
 const commentContainer = css`
   padding-bottom: 100px;
+`;
+
+const fixedForm = css`
+  width: 100%;
+  position: fixed;
+  bottom: 56px;
 `;
