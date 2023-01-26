@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router';
 import {Avator} from '@/components/atoms';
-import {HeaderButton} from '@/components/atoms';
+import {HeaderButton} from './HeaderButton';
 
 export const HeaderAvator = ({user}) => {
   const navigate = useNavigate();
