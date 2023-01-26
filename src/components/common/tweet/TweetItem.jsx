@@ -4,6 +4,7 @@ import {Box, Avator, Pressable} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 import {TweetStatusIcon} from './TweetStatusIcon';
+import {TweetImages} from './TweetImages';
 
 export const TweetItem = ({item}) => {
   const {user, body, created_at, images, ...statusData} = item;
