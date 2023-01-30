@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
-import {Box, Avator, Pressable} from '@/components/atoms';
+import {Box, Avator, Pressable, Text} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 import {TweetStatusIcon} from './TweetStatusIcon';
@@ -46,7 +46,36 @@ export const TweetItem = ({item}) => {
           <Avator image={user.avator} size={48} />
         </Box>
         <Box css={content}>
-          {/* ToDo */}
+          <Box css={textField}>
+            <Box row css={header} alignItems="center" justifyContent="space-between">
+              <Box row alignItems="center">
+                <div css={userWrap}>
+                  <Text fontWeight={700} css={{textOverflow: 'ellipsis'}}>
+                    {user.name}
+                  </Text>
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    @{user.account_name}
+                  </Text>
+                </div>
+                <Box row css={time} alignItems="center">
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    •
+                  </Text>
+                  <Text css={text} fontSize={12} color={Colors.Text.Seconday}>
+                    {calcCreatedDiff(created_at)}
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+            <Box css={tweetBody}>
+              <Text>{body}</Text>
+              {!!images.length && (
+                <Box css={imageWrap}>
+                  <TweetImages images={images} />
+                </Box>
+              )}
+            </Box>
+          </Box>
 
           <Box row css={iconWrap} justifyContent="space-between" alignItems="center" onClick={eventCancel}>
             <TweetStatusIcon
