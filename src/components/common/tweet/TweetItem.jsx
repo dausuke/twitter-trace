@@ -46,7 +46,7 @@ export const TweetItem = ({item}) => {
 
   const handleIconClick = async icon => {
     const result = authGuard();
-    if (result === false) return;
+    if (result === false) return !result;
 
     icon === 'comment'
       ? navigate('/post/tweet', {state: {commentTo: item.id}})
