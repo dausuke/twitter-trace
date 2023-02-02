@@ -3,6 +3,8 @@ import {css} from '@emotion/react';
 import {Box} from '@/components/atoms';
 import axios from '@/libs/axios';
 import {TweetItem} from '@/components/common';
+import {AppPage} from '@/components/layout/AppPage';
+import {HeaderAvator} from '@/components/common';
 
 export const Feed = () => {
   const [tweets, setTweets] = useState([]);
@@ -17,16 +19,26 @@ export const Feed = () => {
     }
   };
 
+  const headerOption = {
+    headerLeft: <HeaderAvator user={null} />,
+    title: 'ホーム',
+    titleStyle: {
+      textAlign: 'center',
+    },
+  };
+
   useEffect(() => {
     fetchTweets();
   }, []);
 
   return (
-    <Box css={content}>
-      {tweets.map(tweet => (
-        <TweetItem item={tweet} key={tweet.id} />
-      ))}
-    </Box>
+    <AppPage headerOption={headerOption}>
+      <Box css={content}>
+        {tweets.map(tweet => (
+          <TweetItem item={tweet} key={tweet.id} />
+        ))}
+      </Box>
+    </AppPage>
   );
 };
 

@@ -1,6 +1,7 @@
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
-import {Box, Avator, Pressable, Text} from '@/components/atoms';
+import {Link} from 'react-router-dom';
+import {Box, Avator, Text} from '@/components/atoms';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
 import {TweetStatusIcon} from './TweetStatusIcon';
@@ -31,16 +32,12 @@ export const TweetItem = ({item}) => {
 
   const eventCancel = e => e.stopPropagation();
 
-  const onTweetClick = () => {
-    console.log('tweet click');
-  };
-
   const handleIconClick = icon => {
     console.log(`${icon} click`);
   };
 
   return (
-    <Pressable onClick={onTweetClick}>
+    <Link to={`/tweet/${item.id}`}>
       <Box row css={container}>
         <Box>
           <Avator image={user.avator} size={48} />
@@ -100,7 +97,7 @@ export const TweetItem = ({item}) => {
           </Box>
         </Box>
       </Box>
-    </Pressable>
+    </Link>
   );
 };
 

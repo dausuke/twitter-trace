@@ -4,6 +4,7 @@ import {PageHeader} from '../common/header/PageHeader';
 
 export const AppPage = ({children, headerOption}) => (
   <Page>
+    <PageHeader {...headerOption} />
     <Box css={content}>{children}</Box>
   </Page>
 );
