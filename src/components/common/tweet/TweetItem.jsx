@@ -1,9 +1,9 @@
 import {useState} from 'react';
 import {css} from '@emotion/react';
 import dayjs from 'dayjs';
-import {useNavigate, Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {tweetAction} from '@/api';
-import {Box, Text, Avator} from '@/components/atoms';
+import {Box, Text, Avator, Pressable} from '@/components/atoms';
 import {AuthDialog} from '@/components/auth/AuthDialog';
 import {Colors} from '@/assets/styles';
 import {CONTENT_WIDTH} from '@/config';
@@ -53,6 +53,10 @@ export const TweetItem = ({item}) => {
       : await tweetAction(item.id, icon);
   };
 
+  const onTweetClick = () => {
+    navigate(`/tweet/${item.id}`);
+  };
+
   const onDialogBackgroundClick = () => {
     setIsShowDialog(false);
   };
@@ -60,7 +64,7 @@ export const TweetItem = ({item}) => {
   return (
     <>
       <AuthDialog isShow={isShowDialog} onBackgroundClick={onDialogBackgroundClick} />
-      <Link to={`/tweet/${item.id}`}>
+      <Pressable onClick={onTweetClick}>
         <Box row css={container}>
           <Box>
             <Avator image={user.avator} size={48} />
@@ -118,7 +122,7 @@ export const TweetItem = ({item}) => {
             </Box>
           </Box>
         </Box>
-      </Link>
+      </Pressable>
     </>
   );
 };
